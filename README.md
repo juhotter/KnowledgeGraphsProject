@@ -21,5 +21,5 @@ This JSON file holds all businesses, which were mentioned in the reviews of the 
 
 ### How is the knowledge combined?
 #### The structured dataset is used to build an ontology of restaurants.
-#### The unstructured dataset is used to map different dishes to restaurants so that we can derive something like a restaurant menu.
+#### The unstructured dataset is used to map different dishes to restaurants so that we can derive something like a restaurant menu, like it is done with Google Reviews already.
 
