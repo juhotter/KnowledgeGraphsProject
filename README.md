@@ -24,3 +24,6 @@ This JSON file holds all businesses
 #### The unstructured dataset is used to map different dishes to restaurants so that we can derive something like a restaurant menu, like it is done with Google Reviews already. This means when a restaurant has a reviews with named dishes this dishes are then mapped to that restaurant.
 
 
+The structured dataset is converted into RDF and can be accessed with the following link: https://drive.google.com/file/d/1RN3UI_eKsCGpeCbdS5hm_HkSQqTguFGL/view?usp=sharing .
+The file is too large to be uploaded onto Git.
+
