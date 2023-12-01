@@ -1,22 +1,20 @@
 import json
 
-input_file_path = 'yelp_academic_dataset_review.json'
-output_file_path = 'output.json'  # Change this to your desired output file path
-num_items_to_keep = 1000
+def lazy_load_json(file_path, chunk_size=1000):
+    with open(file_path, 'r') as file:
+        data = []
+        for i, line in enumerate(file):
+            if i >= chunk_size:
+                break
+            data.append(json.loads(line))
+    return data
 
-# Function to delete items except the first 1000
-def delete_items_except_first_n(input_file_path, output_file_path, num_items_to_keep):
-    with open(input_file_path, 'r', encoding='utf-8') as input_file:
-        with open(output_file_path, 'w', encoding='utf-8') as output_file:
-            for _ in range(num_items_to_keep):
-                line = input_file.readline()
-                if not line:
-                    break  # End of file reached before reaching the desired number of items
-                json_item = json.loads(line)
-                json.dump(json_item, output_file, ensure_ascii=False)
-                output_file.write('\n')
+def save_shortened_json(shortened_data, output_file):
+    with open(output_file, 'w') as file:
+        json.dump(shortened_data, file)
 
-# Run the function
-delete_items_except_first_n(input_file_path, output_file_path, num_items_to_keep)
-
-print(f"{num_items_to_keep} items have been kept. Output saved to {output_file_path}")
+if __name__ == "__main__":
+    input_file_path = "yelp_academic_dataset_review.json"
+    output_file_path = "shortened_yelp_reviews.json"
+    data_chunk = lazy_load_json(input_file_path, chunk_size=1000)
+    save_shortened_json(data_chunk, output_file_path)
