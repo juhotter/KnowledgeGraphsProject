@@ -12,9 +12,14 @@ Therefore we wrote a short script that filtered us all businesses that were name
 
 ### Unstructured Data:
 #### yelp_academic_dataset_review.json
-This JSON file holds 1000 reviews from users on Yelp.
+This JSON file holds 1000 reviews from users on Yelp. The text part, namely the written reviews is the interesting part here.
+
 
 ### Structured Data:
 #### yelp_academic_dataset_business.json
 This JSON file holds all businesses, which were mentioned in the reviews of the yelp_academic_dataset_review.json.
+
+### How is the knowledge combined?
+#### The structured dataset is used to build an ontology of restaurants.
+#### The unstructured dataset is used to map different dishes to restaurants so that we can derive something like a restaurant menu, like it is done with Google Reviews already.
 
