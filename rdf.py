@@ -2,7 +2,7 @@ import json
 from rdflib import Graph, Namespace, Literal, URIRef
 
 # Load JSON data
-with open('yelp_academic_dataset_business.json', 'r') as file:
+with open('./yelp_dataset/yelp_academic_dataset_business.json', 'r') as file:
     data = json.load(file)
 
 # Create an RDF graph
