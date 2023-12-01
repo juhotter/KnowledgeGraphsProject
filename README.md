@@ -12,7 +12,7 @@ Therefore we wrote a short script that filtered us all businesses that were name
 
 ### Unstructured Data:
 #### yelp_academic_dataset_review.json
-This JSON file holds 1000 reviews from users on Yelp.
+This JSON file holds 1000 reviews from users on Yelp. The text part, namely the written reviews is the interesting part here.
 
 
 ### Structured Data:
