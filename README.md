@@ -10,12 +10,12 @@ Reviews will serve as unstructured data whereas businesses will serve as structu
 For our project, we had to shorten both datasets and decided to go with only 1000 reviews since the amount of data was too much to process further.
 Therefore we wrote a short script that filtered us all businesses that were named in those 1000 reviews used.
 
-### Structured Data:
-#### yelp_academic_dataset_business.json
-This JSON file holds all businesses
-
 ### Unstructured Data:
 #### yelp_academic_dataset_review.json
-This JSON file holds reviews from users belonging to certain businesses.
+This JSON file holds 1000 reviews from users on Yelp.
+
+### Structured Data:
+#### yelp_academic_dataset_business.json
+This JSON file holds all businesses, which were mentioned in the reviews of the yelp_academic_dataset_review.json.
 
 
