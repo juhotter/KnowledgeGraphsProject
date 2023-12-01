@@ -19,10 +19,10 @@ This JSON file holds 1000 reviews from users on Yelp.
 This JSON file holds all businesses, which were mentioned in the reviews of the yelp_academic_dataset_review.json.
 
 ###Deadlines:
-**D1.1. Domain Selection and Identification of sources (06.12.2023) ✔️
-**D1.2. RDF data created from the sources (13.12.2023)
-**D2.1. Knowledge graph stored in a triple store (20.12.2023)
-**D3.1. Calculation of the quality scores for the correctness and completeness dimensions as well as the
+** D1.1. Domain Selection and Identification of sources (06.12.2023) ✔️
+** D1.2. RDF data created from the sources (13.12.2023)
+** D2.1. Knowledge graph stored in a triple store (20.12.2023)
+** D3.1. Calculation of the quality scores for the correctness and completeness dimensions as well as the
 calculation of an aggregated quality score (03.01.2027)
-**D4.1. Enriched knowledge graph with linked duplicate instances (17.01.2023)
-**D5.1. Error detection implementation and a report of the found errors (31.01.2023)
+** D4.1. Enriched knowledge graph with linked duplicate instances (17.01.2023)
+** D5.1. Error detection implementation and a report of the found errors (31.01.2023)
