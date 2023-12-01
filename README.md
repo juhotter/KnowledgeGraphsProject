@@ -7,7 +7,8 @@ For our purpose, we use the dataset of businesses and reviews.
 Reviews will serve as unstructured data whereas businesses will serve as structured data.
 
 ### Note:
-For our project, we had to shorten both datasets and decided to go with only 1000 reviews & 1000 businesses, since the amount of data was too much to process further.
+For our project, we had to shorten both datasets and decided to go with only 1000 reviews since the amount of data was too much to process further.
+Therefore we wrote a short script that filtered us all businesses that were named in those 1000 reviews used.
 
 ### Structured Data:
 #### yelp_academic_dataset_business.json
