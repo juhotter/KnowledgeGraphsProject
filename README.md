@@ -27,3 +27,7 @@ This JSON file holds all businesses
 The structured dataset is converted into RDF and can be accessed with the following link: https://drive.google.com/file/d/1RN3UI_eKsCGpeCbdS5hm_HkSQqTguFGL/view?usp=sharing .
 The file is too large to be uploaded onto Git.
 
+
+### Graph
+The Graph is hosted in GraphDB on our local machine. The graph was exported as a .rj file and can be accessed with the following link: https://drive.google.com/file/d/1hNc0vtxNWhHp7xWnhBSDvqARQxxF8u6J/view?usp=sharing
+The file is again too large to be uploaded onto Git.
