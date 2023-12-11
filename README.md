@@ -28,6 +28,6 @@ The structured dataset is converted into RDF and can be accessed with the follow
 The file is too large to be uploaded onto Git.
 
 
-### Graph
-The Graph is hosted in GraphDB on our local machine. The graph was exported as a .rj file and can be accessed with the following link: https://drive.google.com/file/d/1hNc0vtxNWhHp7xWnhBSDvqARQxxF8u6J/view?usp=sharing
+### Graph Repository
+The Graph Repository is hosted in GraphDB on our local machine. The repository was exported as a .rj file and can be accessed with the following link: https://drive.google.com/file/d/1SqUEAvSJhQ3xlqfjD1AlNnHQ_DuGXaR8/view?usp=share_link
 The file is again too large to be uploaded onto Git.
