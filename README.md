@@ -31,3 +31,36 @@ The file is too large to be uploaded onto Git.
 ### Graph Repository
 The Graph Repository is hosted in GraphDB on our local machine. The repository was exported as a .rj file and can be accessed with the following link: https://drive.google.com/file/d/1SqUEAvSJhQ3xlqfjD1AlNnHQ_DuGXaR8/view?usp=share_link
 The file is again too large to be uploaded onto Git.
+
+## Queries
+
+### Linking:
+
+PREFIX ns1: <http://schema.org/>
+
+INSERT {
+  GRAPH <http://example.com/linked-data/> {
+    ?business ns1:hasMenu ?menu .
+  }
+}
+WHERE {
+  GRAPH <http://example.com/business/> {
+    ?business ns1:identifier ?businessId .
+  }
+  GRAPH <http://example.com/meals/> {
+    ?menu ns1:identifier ?businessId .
+  }
+}
+
+
+### Menu quering
+
+PREFIX schema: <http://schema.org/>
+
+SELECT ?business ?name ?menuItem
+WHERE {
+  ?business schema:hasMenu ?menu .
+  ?business schema:name ?name .
+  ?menu schema:menu ?menuItem .
+}
+
