@@ -1,36 +1,44 @@
 import json
-from rdflib import Graph, Namespace, Literal, URIRef
+from rdflib import Graph, Namespace, Literal, URIRef, RDF, XSD
+from datetime import datetime
 
-# Load JSON data
 with open('./yelp_dataset/yelp_academic_dataset_review_nlp_processed.json', 'r') as file:
     data = json.load(file)
 
-# Create an RDF graph
 g = Graph()
 
-# Define schema.org namespace
 schema = Namespace("http://schema.org/")
 
-# Define mappings between JSON properties and schema.org properties for meals
+# mappings
 meal_mappings = {
-    "meals": schema.menu,
-    "businessId": schema.identifier,
+    "meals": (schema.menu, schema.FoodEstablishment),
+    "businessId": (schema.identifier, schema.LocalBusiness),
 }
 
-# Iterate through each entry in the JSON data
+# iterate through each entry
 for entry in data:
-    # Create a unique URI for the business
     business_uri = URIRef(f"http://example.com/business/{entry['businessId']}")
 
-    # Add triples for each property
-    for json_property, schema_property in meal_mappings.items():
+    # add class for LocalBusiness
+    g.add((business_uri, RDF.type, schema.LocalBusiness))
+
+    for json_property, (schema_property, property_class) in meal_mappings.items():
         if json_property in entry and entry[json_property] is not None:
             if json_property == "meals":
-                # Special handling for meals
                 for meal in entry[json_property]:
+                    # add class for FoodEstablishment
+                    if property_class:
+                        g.add((business_uri, RDF.type, property_class))
                     g.add((business_uri, schema_property, Literal(meal, lang="en")))
             else:
                 g.add((business_uri, schema_property, Literal(entry[json_property], lang="en")))
 
-# Serialize the RDF graph to a file
-g.serialize(destination='./yelp_dataset/meals.rdf', format='xml')
+# provenance information
+provenance_uri = URIRef("http://example.com/provenance")
+g.add((provenance_uri, RDF.type, schema.Provenance))
+g.add((provenance_uri, schema.creationDate, Literal(datetime.now().isoformat(), datatype=XSD.dateTime)))
+g.add((provenance_uri, schema.dataSource, Literal("https://www.yelp.com/dataset", lang="en")))
+g.add((provenance_uri, schema.numberOfTriples, Literal(len(g), datatype=XSD.integer)))
+
+# export
+g.serialize(destination='./yelp_dataset/meals_with_provenance.rdf', format='xml')
