@@ -19,11 +19,11 @@ property_mappings = {
     "city": (schema.addressLocality, schema.LocalBusiness),
     "state": (schema.addressRegion, schema.LocalBusiness),
     "postal_code": (schema.postalCode, schema.LocalBusiness),
-    "latitude": (schema.latitude, schema.GeoCoordinates),  # Class for latitude
-    "longitude": (schema.longitude, schema.GeoCoordinates),  # Class for longitude
-    "stars": (schema.ratingValue, schema.Rating),  # Map "stars" to "Rating" type
+    "latitude": (schema.latitude, None),
+    "longitude": (schema.longitude, None),
+    "stars": (schema.ratingValue, schema.Rating),
     "review_count": (schema.reviewCount, schema.Rating),
-    "is_open": (schema.openingHoursSpecification, schema.LocalBusiness),
+    "is_open": (schema.is_open, None),
     "attributes": (schema.additionalProperty, schema.LocalBusiness),
     "categories": (schema.category, schema.LocalBusiness),
     "hours": (schema.hoursAvailable, schema.LocalBusiness),
@@ -47,10 +47,13 @@ for business in data:
             elif json_property == "hours" and business[json_property] is not None:
                 for day, hours in business[json_property].items():
                     g.add((business_uri, schema_property, Literal(f"{day} {hours}", lang="en")))
+            elif json_property in ["latitude", "longitude"]:
+                g.add((business_uri, schema_property, Literal(business[json_property])))
             else:
+                # Check if property_class is not None before adding the triple
                 if property_class:
-                    # Add a triple indicating the type of the property value
-                    g.add((business_uri, schema_property, RDF.type, property_class))
+                    g.add((business_uri, RDF.type, property_class))
                 g.add((business_uri, schema_property, Literal(business[json_property], lang="en")))
+
 # Serialize the RDF graph to a file
-g.serialize(destination='output.rdf', format='xml')
+g.serialize(destination='./yelp_dataset/business_withClasses.rdf', format='xml')
