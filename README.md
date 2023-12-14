@@ -24,43 +24,39 @@ This JSON file holds all businesses
 #### The unstructured dataset is used to map different dishes to restaurants so that we can derive something like a restaurant menu, like it is done with Google Reviews already. This means when a restaurant has a reviews with named dishes this dishes are then mapped to that restaurant.
 
 
-The structured dataset is converted into RDF and can be accessed with the following link: https://drive.google.com/file/d/1RN3UI_eKsCGpeCbdS5hm_HkSQqTguFGL/view?usp=sharing .
+The structured dataset is converted into RDF and can be accessed with the following link: 
+https://drive.google.com/file/d/1ntWd4VDm23me5CyYl9xQKQoJAUK3-Vev/view?usp=sharing
 The file is too large to be uploaded onto Git.
 
 
 ### Graph Repository
-The Graph Repository is hosted in GraphDB on our local machine. The repository was exported as a .rj file and can be accessed with the following link: https://drive.google.com/file/d/1SqUEAvSJhQ3xlqfjD1AlNnHQ_DuGXaR8/view?usp=share_link
+The Graph Repository is hosted in GraphDB on our local machine. The repository was exported as a .rj file and can be accessed with the following link: https://drive.google.com/file/d/13y2U3a4MsYBY4cqJpSwPVvBR9bp82OLs/view?usp=sharing
 The file is again too large to be uploaded onto Git.
 
-## Queries
 
-### Linking:
+### Queries
 
-PREFIX ns1: <http://schema.org/>
+In a previous version, it was necessary to link the data explicitly with a query. However, since adding classes, it does so automatically with the unique identifier.
 
-INSERT {
-  GRAPH <http://example.com/linked-data/> {
-    ?business ns1:hasMenu ?menu .
-  }
-}
-WHERE {
-  GRAPH <http://example.com/business/> {
-    ?business ns1:identifier ?businessId .
-  }
-  GRAPH <http://example.com/meals/> {
-    ?menu ns1:identifier ?businessId .
-  }
-}
-
-
-### Menu quering
+#### Menu querying:
 
 PREFIX schema: <http://schema.org/>
 
-SELECT ?business ?name ?menuItem
+SELECT ?businessName ?meal
 WHERE {
-  ?business schema:hasMenu ?menu .
-  ?business schema:name ?name .
-  ?menu schema:menu ?menuItem .
+  ?business schema:name ?businessName .
+  ?business schema:menu ?meal .
+}
+
+
+#### Provenance information
+
+PREFIX schema: <http://schema.org/>
+
+SELECT ?creationDate ?dataSource ?numberOfTriples
+WHERE {
+  ?provenance schema:creationDate ?creationDate ;
+              schema:dataSource ?dataSource ;
+              schema:numberOfTriples ?numberOfTriples .
 }
 
