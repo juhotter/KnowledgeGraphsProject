@@ -74,27 +74,23 @@ The mapping in the Python scripts operates as follows: JSON data from datasets a
 ### D2.1. Knowledge graph stored in a triple store (20.12.2023)
 #### Graph Repository
 The Graph Repository is hosted in GraphDB on our local machine. 
-The repository was exported as a .rj file and can be accessed with the following link: https://drive.google.com/file/d/13y2U3a4MsYBY4cqJpSwPVvBR9bp82OLs/view?usp=sharing
-The file is again too large to be uploaded onto Git.
-
-
+The repository was exported as a .rj file and can be accessed found under **statements.rj**.
 ### Queries
+In a previous version, it was necessary to link the two ontologies explicitly with a query. This was done using:
+//TODO: Joey 
+However, since adding classes to the ontology, this happens automatically with a unique identifier and is not necessary anymore.
 
-In a previous version, it was necessary to link the data explicitly with a query. However, since adding classes, it does so automatically with the unique identifier.
-
-#### Menu querying:
-
+#### Example Query: Menu
+ ```
 PREFIX schema: <http://schema.org/>
-
 SELECT ?businessName ?meal
 WHERE {
   ?business schema:name ?businessName .
   ?business schema:menu ?meal .
 }
-
-
-#### Provenance information
-
+```
+#### Example Query: Provenance information
+ ```
 PREFIX schema: <http://schema.org/>
 
 SELECT ?creationDate ?dataSource ?numberOfTriples
@@ -103,7 +99,7 @@ WHERE {
               schema:dataSource ?dataSource ;
               schema:numberOfTriples ?numberOfTriples .
 }
-
+```
 ## WP3 – Knowledge Assessment
 ### D3.1. Calculation of the quality scores for the correctness and completeness dimensions as well as the
 calculation of an aggregated quality score (03.01.2027)
