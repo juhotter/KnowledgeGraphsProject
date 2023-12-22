@@ -8,8 +8,8 @@ Therefore we will make use of one structured dataset containing the businesses a
 
 ### YELP Dataset(s): <br>
 **https://www.yelp.com/dataset** <br>
-This Yelp dataset includes multiple different datasets.
-Our project uses the dataset about businesses and user reviews, which can be downloaded via the link provided.
+This Yelp dataset includes multiple different datasets.<br>
+Our project uses the dataset about businesses and user reviews, which can be downloaded via the link provided.<br>
 The review dataset will serve as unstructured, whereas the business dataset will serve as structured data.
 
 **Structured Data:**<br>
@@ -18,11 +18,11 @@ This JSON file holds all businesses, whereas each business has a unique **busine
 
 **Unstructured Data:**<br>
 For our project, we had to shorten the reviews dataset from YELP, since we decided to go with only 1000 reviews since the amount of data was too much to process further (millions).
-Therefore we wrote a short script that gave us the first 1000 reviews. **Script: yelp_dataset/rowFilter.py.**
-The JSON file **yelp_academic_dataset_review.json** is the result of the shortened review dataset. 
-From this dataset, we only use two properties. Namely the **text** property & and **businessId** property.
-The **text** property, namely the written reviews is used to extract the meals with the help of NER of food entities.
-The **businessId** property is used to link the found meals to the businesses from the structured dataset.
+Therefore we wrote a short script that gave us the first 1000 reviews. **Script: yelp_dataset/rowFilter.py.** <br>
+The JSON file **yelp_academic_dataset_review.json** is the result of the shortened review dataset. <br>
+From this dataset, we only use two properties. Namely the **text** property & and **businessId** property.<br>
+The **text** property, namely the written reviews is used to extract the meals with the help of NER of food entities.<br>
+The **businessId** property is used to link the found meals to the businesses from the structured dataset.<br>
 
 ### Summarized:
 1. Ontology - The structured dataset is used to build an ontology of (food)-businesses.
@@ -33,25 +33,25 @@ The result should be something like a meal menu for each business.
 
 
 ### D1.2. RDF data created from the sources (13.12.2023)
-As outlined in the first work package (WP1), we have two different datasets.
-For both datasets, we provided a Python script, which converts the two JSON datasets from WP1, to RDF data.
+As outlined in the first work package (WP1), we have two different datasets.<br>
+For both datasets, we provided a Python script, which converts the two JSON datasets from WP1, to RDF data.<br>
 This RDF data then can be used to host the knowledge graph on WP3.
 
 **Structured Dataset:**
-The Python script that was used to map the business dataset to RDF data is the **business_rdf_converter.py**.
+The Python script that was used to map the business dataset to RDF data is the **business_rdf_converter.py**. <br>
 The resulting RDF dataset, used for the 1st ontology, can be found under **business.rdf**
 
 **Unstructured Dataset:**
-Before the unstructured dataset could be mapped to RDF an additional step had to be made.
-First, we needed to extract only the interesting information from this dataset, namely the **businessId** property and the **text** property.
-The **businessId** property is needed for mapping to the structured dataset.
-The **text** property is used for NER.
-Therefore the **yelp_dataset/reviews.py** was used. 
-This Python Script uses a model from a hugging face, which makes NER and is trained on food items.
-Initially, we wanted to make the NER ourselves with PythonSpacy, but since it is not trained on food items, it worked out quite badly. 
-Since we wanted not to train this model ourselves on food, we made use of an already trained model. 
-This model can be found here: https://huggingface.co/Dizex/InstaFoodRoBERTa-NER.
-The result of this extraction can be found under: **yelp_dataset/yelp_academic_dataset_review_nlp_processed.json**
+Before the unstructured dataset could be mapped to RDF an additional step had to be made. <br>
+First, we needed to extract only the interesting information from this dataset, namely the **businessId** property and the **text** property. <br>
+The **businessId** property is needed for mapping to the structured dataset. <br>
+The **text** property is used for NER. <br>
+Therefore the **yelp_dataset/reviews.py** was used.  <br>
+This Python Script uses a model from a hugging face, which makes NER and is trained on food items. <br>
+Initially, we wanted to make the NER ourselves with PythonSpacy, but since it is not trained on food items, it worked out quite badly.  <br>
+Since we wanted not to train this model ourselves on food, we made use of an already trained model.  <br>
+This model can be found here: https://huggingface.co/Dizex/InstaFoodRoBERTa-NER. <br>
+The result of this extraction can be found under: **yelp_dataset/yelp_academic_dataset_review_nlp_processed.json** <br>
 **The results of this NER extraction are objects that only include the business for mapping purposes and the different meals associated with that business.
  ``` {
     "meals": [
@@ -63,8 +63,8 @@ The result of this extraction can be found under: **yelp_dataset/yelp_academic_d
     "businessId": "LHSTtnW3YHCeUkRDGyJOyw"
   },
 ```
-After we have our NER processed dataset, again we map this dataset, to RDF data with a Python script.
-This can be found under: **meal_rdf_converter.py**
+After we have our NER processed dataset, again we map this dataset, to RDF data with a Python script. <br>
+This can be found under: **meal_rdf_converter.py** <br>
 This conversion then results in the final RDF dataset for the 2nd ontology, which can be found under **yelp_dataset/meals.rdf**
 
 **Python Script Mapping**
@@ -72,17 +72,17 @@ The mapping in the Python scripts operates as follows: JSON data from datasets a
 
 ## WP2 – Knowledge Hosting:
 ### D2.1. Knowledge graph stored in a triple store (20.12.2023)
-Both RDF files which result from WP2 now can be used to create and host the knowledge graph.
-This hosting is done via the GraphDB triple store.
-This can be simply done by uploading **both** RDF files, which hold the triples, to GraphDB, via the importRDF option.
-Furthermore, in a previous version of our project, it was necessary to link the two ontologies explicitly with a SPARQL query.
-***Why?***
-Because, on our first attempt, we missed mapping the JSON dataset properties to schema.org classes, which we came up with in-class discussion.
+Both RDF files which result from WP2 now can be used to create and host the knowledge graph. <br>
+This hosting is done via the GraphDB triple store. <br>
+This can be simply done by uploading **both** RDF files, which hold the triples, to GraphDB, via the importRDF option. <br>
+Furthermore, in a previous version of our project, it was necessary to link the two ontologies explicitly with a SPARQL query. <br>
+***Why?*** <br>
+Because, on our first attempt, we missed mapping the JSON dataset properties to schema.org classes, which we came up with in-class discussion. <br>
 However, since we now added classes to the ontology via the Python RDF mapping script, this connection of the ontologies happens automatically with a unique identifier and is not necessary anymore.
 
 #### Graph Repository Hosting
-When both RDF files are to GraphDB, the ontologies now connect automatically via the business, as outlined in the previous section.
-Therefore, when uploaded, the Graph Repository is hosted in GraphDB on our **local machine**. 
+When both RDF files are to GraphDB, the ontologies now connect automatically via the business, as outlined in the previous section. <br>
+Therefore, when uploaded, the Graph Repository is hosted in GraphDB on our **local machine**.  <br>
 Therefore the repository was exported as a .rj file and can be accessed under **statements.rj**.
 
 #### Example Queries
