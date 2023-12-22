@@ -52,7 +52,7 @@ Initially, we wanted to make the NER ourselves with PythonSpacy, but since it is
 Since we wanted not to train this model ourselves on food, we made use of an already trained model.  <br>
 This model can be found here: https://huggingface.co/Dizex/InstaFoodRoBERTa-NER. <br>
 The result of this extraction can be found under: **yelp_dataset/yelp_academic_dataset_review_nlp_processed.json** <br>
-**The results of this NER extraction are objects that only include the business for mapping purposes and the different meals associated with that business.
+The results of this NER extraction are objects that only include the business for mapping purposes and the different meals associated with that business.
  ``` {
     "meals": [
       "wings",
