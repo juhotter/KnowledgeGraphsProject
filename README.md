@@ -7,13 +7,13 @@
 Therefore we will make use of one structured dataset containing the businesses and one unstructured dataset, which includes reviews from those businesses, which we will use for extracting meals.
 
 ### YELP Dataset(s): 
-**https://www.yelp.com/dataset**
+**https://www.yelp.com/dataset** <br>
 This Yelp dataset includes multiple different datasets.
 Our project uses the dataset about businesses and user reviews, which can be downloaded via the link provided.
 The review dataset will serve as unstructured, whereas the business dataset will serve as structured data.
 
 **Structured Data:**
-**yelp_academic_dataset_business.json**
+**yelp_academic_dataset_business.json** <br>
 This JSON file holds all businesses, whereas each business has a unique **businessID**.
 
 **Unstructured Data:**
@@ -109,4 +109,4 @@ WHERE {
 ```
 ## WP3 – Knowledge Assessment
 ### D3.1. Calculation of the quality scores for the correctness and completeness dimensions as well as the
-calculation of an aggregated quality score (03.01.2027)
+calculation of an aggregated quality score (10.01.2024)
