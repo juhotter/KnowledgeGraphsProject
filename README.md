@@ -37,11 +37,11 @@ As outlined in the first work package (WP1), we have two different datasets.
 For both datasets, we provided a Python script, which converts the two JSON datasets from WP1, to RDF data.
 This RDF data then can be used to host the knowledge graph on WP3.
 
-***Structured Dataset:**
+**Structured Dataset:**
 The Python script that was used to map the business dataset to RDF data is the **business_rdf_converter.py**.
-The resulting RDF dataset can be found under **business.rdf**
+The resulting RDF dataset, used for the 1st ontology, can be found under **business.rdf**
 
-***Unstructured Dataset:**
+**Unstructured Dataset:**
 Before the unstructured dataset could be mapped to RDF an additional step had to be made.
 First, we needed to extract only the interesting information from this dataset, namely the **businessId** property and the **text** property.
 The **businessId** property is needed for mapping to the structured dataset.
@@ -63,24 +63,19 @@ The result of this extraction can be found under: **yelp_dataset/yelp_academic_d
     "businessId": "LHSTtnW3YHCeUkRDGyJOyw"
   },
 ```
-After we have our NER processed dataset, again we map this dataset, to RDF data with a python script.
+After we have our NER processed dataset, again we map this dataset, to RDF data with a Python script.
 This can be found under: **meal_rdf_converter.py**
+This conversion then results in the final RDF dataset for the 2nd ontology, which can be found under **yelp_dataset/meals.rdf**
 
+**Python Script Mapping**
+The mapping in the Python scripts operates as follows: JSON data from datasets are processed using the json library, and the resulting information is transformed into RDF triples using the rdflib library. The scripts utilize a set of mappings to associate dataset properties with corresponding classes and properties defined in the "schema.org" namespace. For instance, the first script focuses on businesses and their attributes, generating RDF triples with classes like LocalBusiness and Rating. Similarly, the second script deals with meals associated with businesses, creating RDF triples with classes such as FoodEstablishment. Provenance information, including creation date, data source, and the number of generated triples, is also added. Finally, the RDF graphs are serialized and exported to rdf files. Both scripts share a common structure for RDF generation, contributing to a standardized representation of Yelp dataset information in RDF format.
 
 ## WP2 – Knowledge Hosting:
 ### D2.1. Knowledge graph stored in a triple store (20.12.2023)
 #### Graph Repository
-The Graph Repository is hosted in GraphDB on our local machine. The repository was exported as a .rj file and can be accessed with the following link: https://drive.google.com/file/d/13y2U3a4MsYBY4cqJpSwPVvBR9bp82OLs/view?usp=sharing
+The Graph Repository is hosted in GraphDB on our local machine. 
+The repository was exported as a .rj file and can be accessed with the following link: https://drive.google.com/file/d/13y2U3a4MsYBY4cqJpSwPVvBR9bp82OLs/view?usp=sharing
 The file is again too large to be uploaded onto Git.
-
-
-
-
-
-
-
-
-
 
 
 ### Queries
