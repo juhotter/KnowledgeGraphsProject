@@ -12,11 +12,11 @@ This Yelp dataset includes multiple different datasets.
 Our project uses the dataset about businesses and user reviews, which can be downloaded via the link provided.
 The review dataset will serve as unstructured, whereas the business dataset will serve as structured data.
 
-#### Structured Data:
+**Structured Data:**
 **yelp_academic_dataset_business.json**
 This JSON file holds all businesses, whereas each business has a unique **businessID**.
 
-#### Unstructured Data:
+**Unstructured Data:**
 For our project, we had to shorten the reviews dataset from YELP, since we decided to go with only 1000 reviews since the amount of data was too much to process further (millions).
 Therefore we wrote a short script that gave us the first 1000 reviews. **Script: yelp_dataset/rowFilter.py.**
 The JSON file **yelp_academic_dataset_review.json** is the result of the shortened review dataset. 
@@ -78,7 +78,7 @@ This can be simply done by uploading **both** RDF files, which hold the triples,
 Furthermore, in a previous version of our project, it was necessary to link the two ontologies explicitly with a SPARQL query.
 ***Why?***
 Because, on our first attempt, we missed mapping the JSON dataset properties to schema.org classes, which we came up with in-class discussion.
-However, since we now added classes to the ontology, this connection of the ontologies happens automatically with a unique identifier and is not necessary anymore.
+However, since we now added classes to the ontology via the Python RDF mapping script, this connection of the ontologies happens automatically with a unique identifier and is not necessary anymore.
 
 #### Graph Repository Hosting
 When both RDF files are to GraphDB, the ontologies now connect automatically via the business, as outlined in the previous section.
