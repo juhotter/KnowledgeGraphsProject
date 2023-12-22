@@ -18,7 +18,7 @@ This JSON file holds all businesses, whereas each business has a unique **busine
 
 **Unstructured Data:**<br>
 For our project, we had to shorten the reviews dataset from YELP, since we decided to go with only 1000 reviews since the amount of data was too much to process further (millions).
-Therefore we wrote a short script that gave us the first 1000 reviews. **Script: yelp_dataset/rowFilter.py.** <br>
+Therefore we wrote a short script that gave us the first 1000 reviews.<br> **Script: yelp_dataset/rowFilter.py.** <br>
 The JSON file **yelp_dataset/yelp_academic_dataset_review.json** is the result of the shortened review dataset. <br>
 From this dataset, we only use two properties. Namely the **text** property & and **businessId** property.<br>
 The **text** property, namely the written reviews is used to extract the meals with the help of NER of food entities.<br>
@@ -37,11 +37,11 @@ As outlined in the first work package (WP1), we have two different datasets.<br>
 For both datasets, we provided a Python script, which converts the two JSON datasets from WP1, to RDF data.<br>
 This RDF data then can be used to host the knowledge graph on WP3.
 
-**Structured Dataset:**
+**Structured Dataset:** <br>
 The Python script that was used to map the business dataset to RDF data is the **business_rdf_converter.py**. <br>
 The resulting RDF dataset, used for the 1st ontology, can be found under **yelp_dataset/business.rdf**.
 
-**Unstructured Dataset:**
+**Unstructured Dataset:** <br>
 Before the unstructured dataset could be mapped to RDF an additional step had to be made. <br>
 First, we needed to extract only the interesting information from this dataset, namely the **businessId** property and the **text** property. <br>
 The **businessId** property is needed for mapping to the structured dataset. <br>
