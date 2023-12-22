@@ -6,17 +6,17 @@
 **Domain Decision:** Our choice involves modeling various businesses listed on YELP, encompassing not only food establishments such as restaurants. Furthermore, we intend to incorporate specific food items into these businesses. For instance, considering the example of McDonald's, the model would include distinct meals like cheeseburgers, hamburgers, Big Mac, and so forth. The objective is to create a knowledge graph that encapsulates both businesses and their associated meals.
 Therefore we will make use of one structured dataset containing the businesses and one unstructured dataset, which includes reviews from those businesses, which we will use for extracting meals.
 
-### YELP Dataset(s): 
+### YELP Dataset(s): <br>
 **https://www.yelp.com/dataset** <br>
 This Yelp dataset includes multiple different datasets.
 Our project uses the dataset about businesses and user reviews, which can be downloaded via the link provided.
 The review dataset will serve as unstructured, whereas the business dataset will serve as structured data.
 
-**Structured Data:**
+**Structured Data:**<br>
 **yelp_academic_dataset_business.json** <br>
 This JSON file holds all businesses, whereas each business has a unique **businessID**.
 
-**Unstructured Data:**
+**Unstructured Data:**<br>
 For our project, we had to shorten the reviews dataset from YELP, since we decided to go with only 1000 reviews since the amount of data was too much to process further (millions).
 Therefore we wrote a short script that gave us the first 1000 reviews. **Script: yelp_dataset/rowFilter.py.**
 The JSON file **yelp_academic_dataset_review.json** is the result of the shortened review dataset. 
