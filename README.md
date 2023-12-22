@@ -72,15 +72,22 @@ The mapping in the Python scripts operates as follows: JSON data from datasets a
 
 ## WP2 – Knowledge Hosting:
 ### D2.1. Knowledge graph stored in a triple store (20.12.2023)
-#### Graph Repository
-The Graph Repository is hosted in GraphDB on our local machine. 
-The repository was exported as a .rj file and can be accessed found under **statements.rj**.
-### Queries
-In a previous version, it was necessary to link the two ontologies explicitly with a query. This was done using:
-//TODO: Joey 
-However, since adding classes to the ontology, this happens automatically with a unique identifier and is not necessary anymore.
+Both RDF files which result from WP2 now can be used to create and host the knowledge graph.
+This hosting is done via the GraphDB triple store.
+This can be simply done by uploading **both** RDF files, which hold the triples, to GraphDB, via the importRDF option.
+Furthermore, in a previous version of our project, it was necessary to link the two ontologies explicitly with a SPARQL query.
+***Why?***
+Because, on our first attempt, we missed mapping the JSON dataset properties to schema.org classes, which we came up with in-class discussion.
+However, since we now added classes to the ontology, this connection of the ontologies happens automatically with a unique identifier and is not necessary anymore.
 
-#### Example Query: Menu
+#### Graph Repository Hosting
+When both RDF files are to GraphDB, the ontologies now connect automatically via the business, as outlined in the previous section.
+Therefore, when uploaded, the Graph Repository is hosted in GraphDB on our **local machine**. 
+Therefore the repository was exported as a .rj file and can be accessed under **statements.rj**.
+
+#### Example Queries
+Here are two examples of SPARQL queries provided, for better reproducability.
+*** Example Query: Menu***
  ```
 PREFIX schema: <http://schema.org/>
 SELECT ?businessName ?meal
@@ -89,7 +96,7 @@ WHERE {
   ?business schema:menu ?meal .
 }
 ```
-#### Example Query: Provenance information
+***Example Query: Provenance information***
  ```
 PREFIX schema: <http://schema.org/>
 
