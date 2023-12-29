@@ -86,8 +86,10 @@ Therefore, when uploaded, the Graph Repository is hosted in GraphDB on our **loc
 Therefore the repository was exported as a .rj file and can be accessed under **statements.rj**.
 
 With our dataset now being correctly mapped to the appropriate schema.org classes, we are now able to visualize our data in the GraphDB Workbench. When viewing the class hierarchy, we can see that, unsurprisingly, we don't have a real hierarchy, but rather a set of separate classes. The classes are schema:LocalBusiness, schema:Rating, schema:FoodEsteblishment and schema:Provenance. In the hierarchy, we can see that there exist a lot more examples in the schema:Localbusiness class compared to schema:Foodestablishment. This is due to the fact that, firstly not every business from the dataset is a food-based business, and secondly, the foods served by the places are extracted from the reviews about that place, and not every review contains information about food served.
+![class-hierarchy-KG-Project](https://github.com/juhotter/KnowledgeGraphsProject/assets/74101582/ee117bc6-b4a4-445a-a86f-38b6545972d8)
 
 We are now also able to visualise the relationship of an example business. For this, we can navigat to the "Visual Graph" tab in the GraphDB Workbench and enter an example URI of a given business. In the image below, you can see the example of "Landry's Seafood House". We can observe that it is connected to the schema:LocalBusiness, schema:Rating and Schema:FoodEstablishment classes. The connection to schema:FoodEstablishment is there because a review contained a mention of at least a food product served at the restaurant. Notice how items from the menu are listed as a property of the business, as we can see 9 items in the "menu" property of this place, including bread, fish and mushrooms. This signals that the linking of both datasets worked as expected.
+<img width="715" alt="graph_example" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/74101582/26a159d9-de51-411a-a2a8-8e5b81f583b6">
 
 
 #### Example Queries
