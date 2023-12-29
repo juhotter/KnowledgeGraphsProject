@@ -85,9 +85,11 @@ When both RDF files are to GraphDB, the ontologies now connect automatically via
 Therefore, when uploaded, the Graph Repository is hosted in GraphDB on our **local machine**.  <br>
 Therefore the repository was exported as a .rj file and can be accessed under **statements.rj**.
 
+With our dataset now being correctly mapped to the appropriate schema.org classes, we are now able to visualize our data in the GraphDB Workbench. When viewing the class hierarchy, we can see that, unsurprisingly, we don't have a real hierarchy, but rather a set of separate classes. The classes are schema:LocalBusiness, schema:Rating, schema:FoodEsteblishment and schema:Provenance. In the hierarchy, we can see that there exist a lot more examples in the schema:Localbusiness class compared to schema:Foodestablishment. This is due to the fact that, firstly not every business from the dataset is a food-based business, and secondly, the foods served by the places are extracted from the reviews about that place, and not every review contains information about food served.
+
 #### Example Queries
 Here are two examples of SPARQL queries provided, for better reproducability.
-*** Example Query: Menu***
+***Example Query: Menu***
  ```
 PREFIX schema: <http://schema.org/>
 SELECT ?businessName ?meal
