@@ -108,11 +108,11 @@ WHERE {
   ?business schema:menu ?meal .
 }
 ```
-**Output:**
+***Output:***
 <img width="1039" alt="name_menu output" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/74101582/48cd0d5b-a2b5-47e8-9696-719afa9eadd9">
 
 ***Example Query: Provenance information***
-This Query 
+This query shows the provenance information of the entire linked graph, which means the creation date of data, the source where we have it from, and the number of triples inside each graph. The two rows shown in the output below are the business graph as well as the meals graph. The amount of triples in the meals graph is so low since the triples are only created once for each business offering food, rather than for every food item anew.
  ```
 PREFIX schema: <http://schema.org/>
 
@@ -123,6 +123,9 @@ WHERE {
               schema:numberOfTriples ?numberOfTriples .
 }
 ```
+***Output***
+<img width="1037" alt="provenance output" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/74101582/c7e70835-0259-4958-8a25-bd8958833884">
+
 ## WP3 – Knowledge Assessment
 ### D3.1. Calculation of the quality scores for the correctness and completeness dimensions as well as the
 calculation of an aggregated quality score (10.01.2024)
