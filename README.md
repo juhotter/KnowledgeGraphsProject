@@ -93,6 +93,9 @@ We are now also able to visualise the relationship of an example business. For t
 
 
 #### Example Queries
+
+We imported the classes as two separate named graphs, **business** and **meals**. However, as mentioned above, since linking is not necessary anymore due to the unique identifiers overlapping in both datasets, we could update the queries as not to specify the named graph anymore, but we can simply extract the necessary information from the default graph.
+
 Here are two examples of SPARQL queries provided, for better reproducability.
 ***Example Query: Menu***
  ```
@@ -103,6 +106,9 @@ WHERE {
   ?business schema:menu ?meal .
 }
 ```
+**Output:**
+<img width="1039" alt="name_menu output" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/74101582/48cd0d5b-a2b5-47e8-9696-719afa9eadd9">
+
 ***Example Query: Provenance information***
  ```
 PREFIX schema: <http://schema.org/>
