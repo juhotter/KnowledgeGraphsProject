@@ -164,6 +164,21 @@ This can be done via a simple regex filter. <br>
       "Sunday": "8:0-22:0"
     }
 ```
+**Syntactic validity of property values** <br>
+The values here would be the individual meals that come from the Named Entity Recognition (NER), such as "Burger," but also variations like "Bur’ger." These are then compared using a regular expression (REGEX) to filter out meals containing special characters or numbers. For example, "Bur’ger" should not be included, only "Burger." <br>
+This count is then compared with the total number of meals. Consequently, we have the number of meals that contain special characters or numbers, which can be processed in the next step. <br>
+It's worth noting that there are meals that can be written with an apostrophe, such as "po’boy." However, one can also write this meal as "Po-Boy." We want our knowledge graph to include only meals that contain alphabetical letters, spaces, or hyphens, but no other special characters. Hence, this assessment.
+
+#### Quality Assessment:
+**The calculation of the overall quality score for a knowledge graph can be summarized in three steps:**
+
+1. **Deciding on Dimension Weights:**
+   - We decided to weight both dimensions equally.
+
+2. **Calculating Metric Values:**
+   - Initially, we established weights for the metrics within each dimension. For the Accuracy dimension, we opted for equal weights as the importance of both metrics is relatively comparable. Concerning Completeness, we assigned a weight of 0.6 to Data Completeness and a weight of 0.4 to Population Completeness. This decision was made because the chosen golden standard of 42 meals is somewhat ambiguous.
+   - The next step involves formulating the specific formulas for each metric.
+
 
 
 
