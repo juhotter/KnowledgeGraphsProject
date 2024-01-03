@@ -178,6 +178,22 @@ It's worth noting that there are meals that can be written with an apostrophe, s
 2. **Calculating Metric Values:**
    - Initially, we established weights for the metrics within each dimension. For the Accuracy dimension, we opted for equal weights as the importance of both metrics is relatively comparable. Concerning Completeness, we assigned a weight of 0.6 to Data Completeness and a weight of 0.4 to Population Completeness. This decision was made because the chosen golden standard of 42 meals is somewhat ambiguous.
    - The next step involves formulating the specific formulas for each metric.
+    **Calculating Metric Values:**
+
+Initially, we established weights for the metrics within each dimension. For the Accuracy dimension, we opted for equal weights as the importance of both metrics is relatively comparable. Concerning Completeness, we assigned a weight of 0.6 to Data Completeness and a weight of 0.4 to Population Completeness. This decision was made because the chosen golden standard of 42 meals is somewhat ambiguous. The next step involves formulating the specific formulas for each metric.
+
+**Metric: Population Completeness:**
+\[ \text{Population Completeness} = \frac{\text{Average Meals per Food Establishment in the KG}}{\text{Average Meals per Restaurant according to Google}} \]
+
+**Metric: Data Completeness:**
+\[ \text{Data Completeness} = \frac{\text{Sum of all null Values of All Properties contained in the KG}}{\text{Sum of all Properties without the meal properties}} \]
+
+**Syntactic Structure:**
+\[ \text{Syntactic Structure} = \frac{\text{Number of hours which do not adhere to the syntactic structure}}{\text{Total occurrences of the hour property}} \]
+
+**Syntactic Validity of Property Values:**
+\[ \text{Syntactic Validity of Property Values} = \frac{\text{Number of meals not adhering to syntactic validity}}{\text{Total number of meals in the KG}} \]
+
 
 
 
