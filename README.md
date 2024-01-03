@@ -128,19 +128,27 @@ WHERE {
 
 ## WP3 – Knowledge Assessment
 ### D3.1. Calculation of the quality scores for the correctness and completeness dimensions as well as the
-calculation of an aggregated quality score 
+calculation of an aggregated quality score <br>
+
+To assess the quality score of our knowledge graph, we will evaluate it based on two dimensions: correctness and completeness. Each dimension comprises two distinct metrics.<br>
 
 #### Dimension Correctness
 For this dimension, we decided to use the following two metrics:<br>
+
 **Population completeness:** <br>
 This refers to the degree to which KG covers a basic population. Therefore his metric
 requires a gold standard, which will represent a specific domain.
 The gold standard would be the average number of meals that a restaurant generally has, which is around 42 according to Google. <br>
 Source: https://supertuffmenus.com/blogs/blog/what-is-the-average-size-of-a-restaurant-menu <br>
-We then compare this golden standard with the average number of meals from our food establishment businesses in the knowledge graph. This would be the metric to determine our completeness for meals for a food establishment.
+We then compare this golden standard with the average number of meals from our food establishment businesses in the knowledge graph. This would be the metric to determine our completeness for meals for a food establishment. <br>
+
 **Data completeness:** <br>
 This refers to the missing values in the KG. <br>
-Given that our businesses are sourced from the Yelp dataset, which consistently includes all top-level properties such as address, rating, longitude, and latitude, and in cases where these properties are not available, they are represented as null values. In this context, we will assess the presence of null values in the knowledge graph, indicating properties that lack actual information. This analysis will assist us in gauging the data completeness of our businesses.
+Given that our businesses are sourced from the Yelp dataset, which consistently includes all top-level properties such as address, rating, longitude, and latitude, etc., and in cases where these properties are not available, they are represented as null values. In this context, we will assess the presence of null values in the knowledge graph, indicating properties that lack actual information. This analysis will assist us in gauging the data completeness of our businesses.
+
+#### Dimension Accuracy:
+For this dimension, we decided to use the following two metrics:<br>
+
 
 
 
