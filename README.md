@@ -127,8 +127,7 @@ WHERE {
 <img width="1037" alt="provenance output" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/74101582/c7e70835-0259-4958-8a25-bd8958833884">
 
 ## WP3 – Knowledge Assessment
-### D3.1. Calculation of the quality scores for the correctness and completeness dimensions as well as the
-calculation of an aggregated quality score <br>
+### D3.1. Calculation of the quality scores for the correctness and completeness dimensions as well as the calculation of an aggregated quality score <br>
 
 To assess the quality score of our knowledge graph, we will evaluate it based on two dimensions: correctness and completeness. Each dimension comprises two distinct metrics.<br>
 
@@ -136,8 +135,8 @@ To assess the quality score of our knowledge graph, we will evaluate it based on
 For this dimension, we decided to use the following two metrics:<br>
 
 **Population completeness:** <br>
-This refers to the degree to which KG covers a basic population. Therefore his metric
-requires a gold standard, which will represent a specific domain.
+This refers to the degree to which KG covers a basic population. <br>
+Therefore his metric requires a gold standard, which will represent a specific domain. <br>
 The gold standard would be the average number of meals that a restaurant generally has, which is around 42 according to Google. <br>
 Source: https://supertuffmenus.com/blogs/blog/what-is-the-average-size-of-a-restaurant-menu <br>
 We then compare this golden standard with the average number of meals from our food establishment businesses in the knowledge graph. This would be the metric to determine our completeness for meals for a food establishment. <br>
@@ -147,7 +146,25 @@ This refers to the missing values in the KG. <br>
 Given that our businesses are sourced from the Yelp dataset, which consistently includes all top-level properties such as address, rating, longitude, and latitude, etc., and in cases where these properties are not available, they are represented as null values. In this context, we will assess the presence of null values in the knowledge graph, indicating properties that lack actual information. This analysis will assist us in gauging the data completeness of our businesses.
 
 #### Dimension Accuracy:
-For this dimension, we decided to use the following two metrics:<br>
+For this dimension, we decided to use the following two metrics: <br>
+
+**Syntactic Structure** <br>
+In this context, the focus is on examining how certain properties are represented in the knowledge graph. <br>
+Therefore a meaningful check on the syntactic structure could involve examining the relevant attributes, such as the address or hours of operation, to ensure correct formatting and consistency. <br>
+In our example, we will measure the **hours** property, meaning if the format is the following: <br> 
+This can be done via a simple regex filter. <br>
+ ```
+"hours": {
+      "Monday": "8:0-22:0",
+      "Tuesday": "8:0-22:0",
+      "Wednesday": "8:0-22:0",
+      "Thursday": "8:0-22:0",
+      "Friday": "8:0-23:0",
+      "Saturday": "8:0-23:0",
+      "Sunday": "8:0-22:0"
+    }
+```
+
 
 
 
