@@ -99,7 +99,7 @@ We imported the classes as two separate named graphs, **business** and **meals**
 Here are two examples of SPARQL queries provided, for better reproducability.
 
 ***Example Query: Menu***
-This query outputs the name as well as all the menu items from every establishment that has a menu. Having a successful output of this query means a successful linkage of both dataset, as the connection between the properties of the business, such as name, are completely separate in the dataset from the menu items, and the linking only happens inside GraphDB. Shown below are the first 20 rows of the output.
+This query outputs the name as well as all the menu items from every establishment that has a menu. Having a successful output of this query means a successful linkage of both dataset, as the connection between the properties of the business, such as name, are completely separate in the dataset from the menu items, and the linking only happens inside GraphDB. Shown below are the first 20 rows of the output, which in total had 3,072 rows.
  ```
 PREFIX schema: <http://schema.org/>
 SELECT ?businessName ?meal
@@ -269,13 +269,28 @@ We can see that all the hours saved do conform to our pattern. This means our sc
 <img width="1001" alt="hours" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/74101582/3c9efaf3-9c55-4f28-bb34-76cb739d222a">
 
 
-
-
-
 **Syntactic validity of property values** <br>
 The values here would be the individual meals that come from the Named Entity Recognition (NER), such as "Burger," but also variations like "Bur’ger." These are then compared using a regular expression (REGEX) to filter out meals containing special characters or numbers. For example, "Bur’ger" should not be included, only "Burger." <br>
 This count is then compared with the total number of meals. Consequently, we have the number of meals that contain special characters or numbers, which can be processed in the next step. <br>
 It's worth noting that there are meals that can be written with an apostrophe, such as "po’boy." However, one can also write this meal as "Po-Boy." We want our knowledge graph to include only meals that contain alphabetical letters, spaces, or hyphens, but no other special characters. Hence, this assessment.
+
+For this, we wrote a query that returns all the meals that contain other characters than the usual alphabetical letters or spaces.
+```
+PREFIX schema: <http://schema.org/>
+
+SELECT ?businessName ?meal
+WHERE {
+  ?business schema:name ?businessName .
+  ?business schema:menu ?meal .
+
+  FILTER (regex(?meal, "[^a-zA-Z ]"))
+}
+```
+<img width="1001" alt="sonderzeichen_meals" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/74101582/bb6afc34-b492-4509-bfa7-56af13e4729a">
+
+This query returned a total of 81 results, meaning there are only 81 instances of meals in our dataset that do not adhere to the standard characters. If we compare that to the entirety of meals in our graph, 3,072 (see section Example Query: Menu), we can conclude that only 2.63% of the meals deviate from the standard naming scheme. This means we have a syntactic validity of the meal property value of 97.37%.
+
+
 
 #### Quality Assessment:
 **The calculation of the overall quality score for a knowledge graph can be summarized in three steps:**
