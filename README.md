@@ -320,9 +320,22 @@ This query returned a total of 81 results, meaning there are only 81 instances o
 
    
 
+***Dimension Completeness:***
 
+   Population Completeness: 12.57% <br>
+   Data Completeness: 100% <br>
 
+   $$ 0.4 \cdot 12.57 + 0.6 \cdot 100 = 65.03 $$
+   
+***Dimension Accuracy***
 
+   Syntactic Structure: 100% <br>
+   Syntactic Validity of Property Values: 97.37% <br>
 
+   $$ 0.5 \cdot 100 + 0.5 \cdot 97.37 = 98.68 $$
 
+***Quality Score***
 
+   $$ T(k) = 0.5 \cdot 65.03 + 0.5 \cdot 98.68 = 81.85 $$
+
+We get an overall quality score of **81.85** in our knowledge graph.
