@@ -131,7 +131,7 @@ WHERE {
 
 To assess the quality score of our knowledge graph, we will evaluate it based on two dimensions: correctness and completeness. Each dimension comprises two distinct metrics.<br>
 
-#### Dimension Correctness
+#### Dimension Completeness
 For this dimension, we decided to use the following two metrics:<br>
 
 **Population completeness:** <br>
@@ -230,7 +230,7 @@ WHERE {
 As we can see, the amount of entities with null values in each of these properties is always 0, which means our grah is 100% data complete for all the properties. This is due to the fact that these values are mandatory to be filled in for our dataset. The values that do not adhere to any of these properties are stored in "additionalProperty" attributes. 
 
 
-#### Dimension Accuracy:
+#### Dimension Correctness(Accuracy):
 For this dimension, we decided to use the following two metrics: <br>
 
 **Syntactic Structure** <br>
