@@ -141,6 +141,30 @@ The gold standard would be the average number of meals that a restaurant general
 Source: https://supertuffmenus.com/blogs/blog/what-is-the-average-size-of-a-restaurant-menu <br>
 We then compare this golden standard with the average number of meals from our food establishment businesses in the knowledge graph. This would be the metric to determine our completeness for meals for a food establishment. <br>
 
+The SPARQL query used to get the average amount of meals is shown below. Please note that we only consider the businesses which have at least one meal attached to them, as this allows for a more comprehensive overview. If we were to consider all the businesses, the average would near zero, as we imported a lot more businesses into our KG than we did reviews (2.3 million compared to ~600). The query also returns the total amount of meals as well as the total amount of establishments serving those meals. The output is shown below the query.
+
+```
+PREFIX schema: <http://schema.org/>
+
+SELECT
+  (AVG(?menuItemCount) as ?averageMenuItems)
+  (SUM(?menuItemCount) as ?totalMenuItems)
+  (COUNT(DISTINCT ?business) as ?totalBusinesses)
+WHERE {
+  {
+    SELECT ?business (COUNT(?meal) as ?menuItemCount)
+    WHERE {
+      ?business schema:name ?businessName .
+      ?business schema:menu ?meal .
+    }
+    GROUP BY ?business
+  }
+}
+```
+<img width="1000" alt="avg_meals" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/74101582/14bab57a-354c-47f4-a026-c79982d42f58">
+
+As we can see, the average amount of meals registered in our graph is 5.28. When comparing this to the golden standard of 42, we have a population completeness of 12.57% in this category.
+
 **Data completeness:** <br>
 This refers to the missing values in the KG. <br>
 Given that our businesses are sourced from the Yelp dataset, which consistently includes all top-level properties such as address, rating, longitude, and latitude, etc., and in cases where these properties are not available, they are represented as null values. In this context, we will assess the presence of null values in the knowledge graph, indicating properties that lack actual information. This analysis will assist us in gauging the data completeness of our businesses.
