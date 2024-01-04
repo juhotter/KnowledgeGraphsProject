@@ -215,8 +215,8 @@ WHERE {
   ?business schema:reviewCount ?reviewCount .
   FILTER (!bound(?reviewCount))
 
-  ?business schema:is_open ?isOpen .
-  FILTER (!bound(?isOpen))
+  ?business schema:is_open ?is_open .
+  FILTER (!bound(?is_open))
 
   ?business schema:category ?category .
   FILTER (!bound(?category))
@@ -227,7 +227,7 @@ WHERE {
 ```
 <img width="1095" alt="nullCount" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/74101582/42fadc78-dd80-4e92-bfef-af00fa552f76">
 
-As we can see, the amount of entities with null values in each of these properties is always 0. This is due to the fact that these values are mandatory to be filled in for our dataset. The values that do not adhere to any of these properties are stored in "additionalProperty" attributes. 
+As we can see, the amount of entities with null values in each of these properties is always 0, which means our grah is 100% data complete for all the properties. This is due to the fact that these values are mandatory to be filled in for our dataset. The values that do not adhere to any of these properties are stored in "additionalProperty" attributes. 
 
 
 #### Dimension Accuracy:
@@ -249,6 +249,29 @@ This can be done via a simple regex filter. <br>
       "Sunday": "8:0-22:0"
     }
 ```
+
+In order to achieve this, we wrote wrote a query that checks with the help of a REGEX wheter this property is always true. The regex checks if the first part of the hoursAvailable is any of the weekdays. Next, it checks if the open hours conform to the following pattern: "\\d{1,2}|\\d{1}:\\d{1,2}|\\d{1}-\\d{1,2}|\\d{1}:\\d{1,2}|\\d{1}" . This looks a bit intimidating, but it basically only looks if the structure is "number:number-number:number". We use both \\d{1,2} and \\\\d{1} as possible placeholders for each number since the hours my be given as single or as double digits. If the data in our dataset were saved as e.g. 08:00 instead of 8:0, we could omit all the \\d{1} and only check for \\d{1,2}. The query looks as follows:
+
+```
+PREFIX ns1: <http://schema.org/>
+
+SELECT ?businessName ?hoursAvailable
+WHERE {
+  ?business ns1:hoursAvailable ?hoursAvailable .
+  ?business ns1:name ?businessName .
+
+  FILTER (!regex(?hoursAvailable, "^(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday) \\d{1,2}|\\d{1}:\\d{1,2}|\\d{1}-\\d{1,2}|\\d{1}:\\d{1,2}|\\d{1}$"))
+}
+```
+<img width="1000" alt="hours_syntax" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/74101582/0fa510f6-2c7d-44d1-977b-3c976ce1fa31">
+
+We can see that all the hours saved do conform to our pattern. This means our score for the syntactic accuracy of the opening hours is 100%. As a sanity check, we also checked the output if we removed the negation of the regex, and indeed it did return the entirety of the opening hours:
+<img width="1001" alt="hours" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/74101582/3c9efaf3-9c55-4f28-bb34-76cb739d222a">
+
+
+
+
+
 **Syntactic validity of property values** <br>
 The values here would be the individual meals that come from the Named Entity Recognition (NER), such as "Burger," but also variations like "Bur’ger." These are then compared using a regular expression (REGEX) to filter out meals containing special characters or numbers. For example, "Bur’ger" should not be included, only "Burger." <br>
 This count is then compared with the total number of meals. Consequently, we have the number of meals that contain special characters or numbers, which can be processed in the next step. <br>
