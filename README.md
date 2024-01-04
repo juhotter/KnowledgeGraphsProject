@@ -169,6 +169,67 @@ As we can see, the average amount of meals registered in our graph is 5.28. When
 This refers to the missing values in the KG. <br>
 Given that our businesses are sourced from the Yelp dataset, which consistently includes all top-level properties such as address, rating, longitude, and latitude, etc., and in cases where these properties are not available, they are represented as null values. In this context, we will assess the presence of null values in the knowledge graph, indicating properties that lack actual information. This analysis will assist us in gauging the data completeness of our businesses.
 
+To check this, we wrote a query that returns the total amount of businesses where a core property is missing. The core attributes in our dataset are the following: name, address, addressLocality, addressRegion, postalCode, latitude, longitude, ratingValue, reviewCount, is_open, category, hoursAvailable. To achieve this, we use the SPARQL "BOUND" keyword, and count the instances where a property is not bound, meaning we count the instances where a value is not provided.
+
+```
+PREFIX schema: <http://schema.org/>
+
+SELECT
+  (COUNT(?business) as ?nullNameCount)
+  (COUNT(?business) as ?nullAddressCount)
+  (COUNT(?business) as ?nullAddressLocalityCount)
+  (COUNT(?business) as ?nullAddressRegionCount)
+  (COUNT(?business) as ?nullPostalCodeCount)
+  (COUNT(?business) as ?nullLatitudeCount)
+  (COUNT(?business) as ?nullLongitudeCount)
+  (COUNT(?business) as ?nullRatingCount)
+  (COUNT(?business) as ?nullReviewCount)
+  (COUNT(?business) as ?nullIsOpenCount)
+  (COUNT(?business) as ?nullCategoryCount)
+  (COUNT(?business) as ?nullHoursAvailableCount)
+WHERE {
+  ?business schema:name ?name .
+  FILTER (!bound(?name))
+
+  ?business schema:address ?address .
+  FILTER (!bound(?address))
+
+  ?business schema:addressLocality ?addressLocality .
+  FILTER (!bound(?addressLocality))
+
+  ?business schema:addressRegion ?addressRegion .
+  FILTER (!bound(?addressRegion))
+
+  ?business schema:postalCode ?postalCode .
+  FILTER (!bound(?postalCode))
+
+  ?business schema:latitude ?latitude .
+  FILTER (!bound(?latitude))
+
+  ?business schema:longitude ?longitude .
+  FILTER (!bound(?longitude))
+
+  ?business schema:ratingValue ?rating .
+  FILTER (!bound(?rating))
+
+  ?business schema:reviewCount ?reviewCount .
+  FILTER (!bound(?reviewCount))
+
+  ?business schema:is_open ?isOpen .
+  FILTER (!bound(?isOpen))
+
+  ?business schema:category ?category .
+  FILTER (!bound(?category))
+
+  ?business schema:hoursAvailable ?hoursAvailable .
+  FILTER (!bound(?hoursAvailable))
+}
+```
+<img width="1095" alt="nullCount" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/74101582/42fadc78-dd80-4e92-bfef-af00fa552f76">
+
+As we can see, the amount of entities with null values in each of these properties is always 0. This is due to the fact that these values are mandatory to be filled in for our dataset. The values that do not adhere to any of these properties are stored in "additionalProperty" attributes. 
+
+
 #### Dimension Accuracy:
 For this dimension, we decided to use the following two metrics: <br>
 
