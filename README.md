@@ -296,6 +296,6 @@ This query returned a total of 81 results, meaning there are only 81 instances o
 
 ***Quality Score***
 
-   $$ T(k) = 0.5 \cdot 65.03 + 0.5 \cdot 98.68 = 81.85 $$
+   $$ T(k) = 0.5 \cdot 63,79 + 0.5 \cdot 98.68 = 81.24 $$
 
-We get an overall quality score of **81.85** in our knowledge graph.
+We get an overall quality score of **81.24** in our knowledge graph.
