@@ -169,66 +169,26 @@ As we can see, the average amount of meals registered in our graph is 5.28. When
 This refers to the missing values in the KG. <br>
 Given that our businesses are sourced from the Yelp dataset, which consistently includes all top-level properties such as address, rating, longitude, and latitude, etc., and in cases where these properties are not available, they are represented as null values. In this context, we will assess the presence of null values in the knowledge graph, indicating properties that lack actual information. This analysis will assist us in gauging the data completeness of our businesses.
 
-To check this, we wrote a query that returns the total amount of businesses where a core property is missing. The core attributes in our dataset are the following: name, address, addressLocality, addressRegion, postalCode, latitude, longitude, ratingValue, reviewCount, is_open, category, hoursAvailable. To achieve this, we use the SPARQL "BOUND" keyword, and count the instances where a property is not bound, meaning we count the instances where a value is not provided.
+To check this, we wrote a query that returns the total amount of businesses that posess a core property. The core attributes in our dataset are the following: name, address, addressLocality, addressRegion, postalCode, latitude, longitude, ratingValue, reviewCount, is_open, category, hoursAvailable. To achieve this, we use the SPARQL "DISTINCT" and "COUNT" keyword, thus count the distinct instances that have a certain property. We only count distinct entities since a business can have multiple instances of the same property.
 
 ```
 PREFIX schema: <http://schema.org/>
 
-SELECT
-  (COUNT(?business) as ?nullNameCount)
-  (COUNT(?business) as ?nullAddressCount)
-  (COUNT(?business) as ?nullAddressLocalityCount)
-  (COUNT(?business) as ?nullAddressRegionCount)
-  (COUNT(?business) as ?nullPostalCodeCount)
-  (COUNT(?business) as ?nullLatitudeCount)
-  (COUNT(?business) as ?nullLongitudeCount)
-  (COUNT(?business) as ?nullRatingCount)
-  (COUNT(?business) as ?nullReviewCount)
-  (COUNT(?business) as ?nullIsOpenCount)
-  (COUNT(?business) as ?nullCategoryCount)
-  (COUNT(?business) as ?nullHoursAvailableCount)
+SELECT (COUNT(DISTINCT ?business) as ?countHoursAvailable)
 WHERE {
-  ?business schema:name ?name .
-  FILTER (!bound(?name))
-
-  ?business schema:address ?address .
-  FILTER (!bound(?address))
-
-  ?business schema:addressLocality ?addressLocality .
-  FILTER (!bound(?addressLocality))
-
-  ?business schema:addressRegion ?addressRegion .
-  FILTER (!bound(?addressRegion))
-
-  ?business schema:postalCode ?postalCode .
-  FILTER (!bound(?postalCode))
-
-  ?business schema:latitude ?latitude .
-  FILTER (!bound(?latitude))
-
-  ?business schema:longitude ?longitude .
-  FILTER (!bound(?longitude))
-
-  ?business schema:ratingValue ?rating .
-  FILTER (!bound(?rating))
-
-  ?business schema:reviewCount ?reviewCount .
-  FILTER (!bound(?reviewCount))
-
-  ?business schema:is_open ?is_open .
-  FILTER (!bound(?is_open))
-
-  ?business schema:category ?category .
-  FILTER (!bound(?category))
-
   ?business schema:hoursAvailable ?hoursAvailable .
-  FILTER (!bound(?hoursAvailable))
 }
 ```
-<img width="1095" alt="nullCount" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/74101582/42fadc78-dd80-4e92-bfef-af00fa552f76">
+<img width="1001" alt="totalHoursAvailable" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/74101582/ddb3a7bd-a1ad-46f3-8fee-1b3f348e5e84">
 
-As we can see, the amount of entities with null values in each of these properties is always 0, which means our grah is 100% data complete for all the properties. This is due to the fact that these values are mandatory to be filled in for our dataset. The values that do not adhere to any of these properties are stored in "additionalProperty" attributes. 
+Above is shown an example of how such a query looks to check the total amount of entities that posess the "hoursAvailable" attribute. As we can see, a total of 84564 businesses have this property. We compared every core attribute, by utilizing this query structure, to the total amount of businesses in our graph (100000) and got the following result:
 
+Total | name | address | addressLocality | addressRegion | postalCode | latitude | longitude | ratingValue | reviewCount | category | hoursAvailable | additionalProperty 
+--- | --- | --- | --- |--- |--- |--- |--- |--- |--- |--- |--- | ---
+100000 | 100000 | 100000 | 100000 | 100000 | 100000 | 100000 | 100000 | 100000 | 100000 | 99931 | 84564 | 90915
+
+As we can see, almost all the entities have all the properties, and only for three distinct attributes (amongst them the less important additionalProperty), we have entities that are missing those attributes. If we take the average of all the properties, we get a completeness of 
+**97.95%**.
 
 #### Dimension Correctness(Accuracy):
 For this dimension, we decided to use the following two metrics: <br>
@@ -323,9 +283,9 @@ This query returned a total of 81 results, meaning there are only 81 instances o
 ***Dimension Completeness:***
 
    Population Completeness: 12.57% <br>
-   Data Completeness: 100% <br>
+   Data Completeness: 97.95% <br>
 
-   $$ 0.4 \cdot 12.57 + 0.6 \cdot 100 = 65.03 $$
+   $$ 0.4 \cdot 12.57 + 0.6 \cdot 97.95 = 63,79 $$
    
 ***Dimension Accuracy***
 
