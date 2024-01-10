@@ -299,3 +299,7 @@ This query returned a total of 81 results, meaning there are only 81 instances o
    $$ T(k) = 0.5 \cdot 63,79 + 0.5 \cdot 98.68 = 81.24 $$
 
 We get an overall quality score of **81.24** in our knowledge graph.
+
+
+## WP4 – Knowledge Enrichment
+### D4.1. Enriched knowledge graph with linked duplicate instances <br>
