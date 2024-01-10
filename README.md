@@ -193,6 +193,7 @@ As we can see, almost all the entities have all the properties, and only for thr
 #### Dimension Correctness(Accuracy):
 For this dimension, we decided to use the following two metrics: <br>
 
+<!---
 **Syntactic Structure** <br>
 In this context, the focus is on examining how certain properties are represented in the knowledge graph. <br>
 Therefore a meaningful check on the syntactic structure could involve examining the relevant attributes, such as the address or hours of operation, to ensure correct formatting and consistency. <br>
@@ -227,7 +228,27 @@ WHERE {
 
 We can see that all the hours saved do conform to our pattern. This means our score for the syntactic accuracy of the opening hours is 100%. As a sanity check, we also checked the output if we removed the negation of the regex, and indeed it did return the entirety of the opening hours:
 <img width="1001" alt="hours" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/74101582/3c9efaf3-9c55-4f28-bb34-76cb739d222a">
+-->
 
+**Semantic validity of businesses**
+
+To semantically validate our knowledge graph, we want to make sure every business offers at least one meal. To do this, we impose a SHACL constraint that does exactly this. In order to use SHACL constraints in our GraphDB repository, we first had to change the settings, such that it accomodates for SHACL constraints. After this is done, we can upload our .ttl SHACL file as we would normal RDF data, but importing it into a special named graph, the SHACL constraint graph defined in the settings of the repository. The default constraint graph is *http://rdf4j.org/schema/rdf4j#SHACLShapeGraph*. Since we want to impose the restriction that every business must offer at least one meal, our SHACL file looks as follows.
+
+```
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+@prefix schema: <http://schema.org/>.
+@prefix ex: <http://example.org/>.
+
+ex:BusinessShape
+  a sh:NodeShape ;
+  sh:targetClass schema:LocalBusiness ;
+  sh:property [
+    sh:path schema:menu ;
+    sh:minCount 1 ;
+  ] .
+```
+After having uploaded the file to the SHACL repository, we get a *Failed SHACL validation* error, as naturally not all instances comply to our restriction. the entire validation output is found in the shaclValidationOutput.txt file.
 
 **Syntactic validity of property values** <br>
 The values here would be the individual meals that come from the Named Entity Recognition (NER), such as "Burger," but also variations like "Bur’ger." These are then compared using a regular expression (REGEX) to filter out meals containing special characters or numbers. For example, "Bur’ger" should not be included, only "Burger." <br>
