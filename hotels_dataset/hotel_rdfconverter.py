@@ -1,4 +1,5 @@
 import csv
+import uuid
 from rdflib import Graph, Namespace, Literal, URIRef
 from rdflib.namespace import RDF, XSD
 
@@ -10,12 +11,10 @@ def convert_csv_to_rdf(csv_file_path, output_file_path):
     with open(csv_file_path, 'r', encoding='utf-8') as csv_file:
         csv_reader = csv.DictReader(csv_file)
         for row in csv_reader:
-            # URI
-            name_for_uri = row['name'].replace(' ', '_')
-            city_for_uri = row['city'].replace(' ', '_')
-            
-            # Adding city to URI to distinguish hotels with the same name
-            instance_uri = URIRef(f"http://example.com/hotel/{name_for_uri}_{city_for_uri}")
+            # unique ID created
+            unique_id = str(uuid.uuid4().hex[:12])
+
+            instance_uri = URIRef(f"http://example.com/hotel/{unique_id}")
 
             graph.add((instance_uri, RDF.type, schema.Hotel))
 
@@ -24,7 +23,7 @@ def convert_csv_to_rdf(csv_file_path, output_file_path):
             graph.add((instance_uri, schema.city, Literal(row['city'], lang='en')))
             graph.add((instance_uri, schema.country, Literal(row['country'], lang='en')))
 
-            # Check if latitude and longitude are not empty before converting to float
+            # there were some empty lat and long
             if row['latitude']:
                 graph.add((instance_uri, schema.latitude, Literal(float(row['latitude']), datatype=XSD.double)))
             if row['longitude']:
