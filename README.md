@@ -324,3 +324,45 @@ We get an overall quality score of **81.24** in our knowledge graph.
 
 ## WP4 – Knowledge Enrichment
 ### D4.1. Enriched knowledge graph with linked duplicate instances <br>
+
+
+We added hotel data from https://data.world/datafiniti/hotel-reviews/workspace/file?filename=7282_1.csv
+We cleaned up the data, removed the reviews as well as duplicate hotels.
+
+Uploaded everything to a new named graph, http://example.com/hotel
+Then we connected them using this sparql query, connecting them by city:
+```
+PREFIX schema: <http://schema.org/>
+
+INSERT {
+  GRAPH <http://example.com/connectedByCity> {
+    ?business schema:connectedTo ?hotel .
+  }
+}
+WHERE {
+  GRAPH <http://example.com/business> {
+    ?business schema:addressLocality ?city .
+  }
+  GRAPH <http://example.com/hotel> {
+    ?hotel schema:addressLocality ?city .
+    FILTER (?hotel != ?business)  # exclude self-connections
+  }
+}
+```
+
+
+We can query the businesses and the surrounding hotels with this:
+
+```
+PREFIX schema: <http://schema.org/>
+
+SELECT ?businessName ?hotelName
+WHERE {
+    ?business schema:connectedTo ?hotel .
+    ?business schema:name ?businessName .
+    ?hotel schema:name ?hotelName .
+}
+```
+<img width="1043" alt="Screenshot 2024-01-11 at 09 43 17" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/74101582/fb59597f-3f6c-4fae-99df-313d6dd95576">
+
+
