@@ -232,7 +232,7 @@ We can see that all the hours saved do conform to our pattern. This means our sc
 
 **Semantic validity of businesses**
 
-To semantically validate our knowledge graph, we want to make sure every business offers at least one meal. To do this, we impose a SHACL constraint that does exactly this. In order to use SHACL constraints in our GraphDB repository, we first had to change the settings, such that it accomodates for SHACL constraints. After this is done, we can upload our .ttl SHACL file as we would normal RDF data, but importing it into a special named graph, the SHACL constraint graph defined in the settings of the repository. The default constraint graph is *http://rdf4j.org/schema/rdf4j#SHACLShapeGraph*. Since we want to impose the restriction that every business must offer at least one meal, our SHACL file looks as follows.
+To semantically validate our knowledge graph, we want to make sure every business offers at least one meal. To do this, we impose a SHACL constraint that does exactly this. In order to use SHACL constraints in our GraphDB repository, we first had to change the settings, such that it accommodates SHACL constraints. After this is done, we can upload our .ttl SHACL file as we would normal RDF data, but importing it into a special named graph, the SHACL constraint graph defined in the settings of the repository. The default constraint graph is *http://rdf4j.org/schema/rdf4j#SHACLShapeGraph*. Since we want to impose the restriction that every business must offer at least one meal, our SHACL file looks as follows.
 
 ```
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
@@ -289,10 +289,10 @@ This query returned a total of 81 results, meaning there are only 81 instances o
       **Metric: Data Completeness:** <br>
       Data Completeness is determined by the ratio of the Sum of all null Values of All Properties contained in the KG to the Sum of all Properties without the meal properties.
 
-      **Syntactic Structure:** <br>
-      Syntactic Structure is evaluated as the ratio of the Number of hours that do not adhere to the syntactic structure to the Total occurrences of the hour property.
+      **Semantic validity of businesses:** <br>
+      Semantic validity is evaluated as the ratio of the Number of businesses that do not contain at least one meal to the Total number of businesses in our knowledge graph. 
 
-      **Syntactic Validity of Property Values:** <br>
+      **Syntactic Validity of Property Values (meals):** <br>
       Syntactic Validity of Property Values is assessed through the ratio of the Number of meals not adhering to syntactic validity to the Total number of meals in the KG.
 
 3. **Calculating an aggregated quality score:**
@@ -310,10 +310,10 @@ This query returned a total of 81 results, meaning there are only 81 instances o
    
 ***Dimension Accuracy***
 
-   Syntactic Structure: 100% <br>
+   Semantic validity: ? <br>
    Syntactic Validity of Property Values: 97.37% <br>
 
-   $$ 0.5 \cdot 100 + 0.5 \cdot 97.37 = 98.68 $$
+   $$ 0.5 \cdot ? + 0.5 \cdot 97.37 = 98.68 $$
 
 ***Quality Score***
 
