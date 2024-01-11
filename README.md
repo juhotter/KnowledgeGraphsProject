@@ -296,7 +296,7 @@ This query returned a total of 81 results, meaning there are only 81 instances o
       Syntactic Validity of Property Values is assessed through the ratio of the Number of meals not adhering to syntactic validity to the Total number of meals in the KG.
 
 3. **Calculating an aggregated quality score:**
-    - Finally, based on the defined metrics and weights, the quality score can be determined using the following formular.
+    - Finally, based on the defined metrics and weights, the quality score can be determined using the following formula.
       <img width="799" alt="Bildschirmfoto 2024-01-03 um 18 40 57" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/64087284/04a1a6ca-1b59-476a-a64d-13eb222cefc0">
 
    
@@ -315,7 +315,7 @@ This query returned a total of 81 results, meaning there are only 81 instances o
 
    $$ 0.5 \cdot 0.005 + 0.5 \cdot 97.37 = 48.69 $$
 
-   ***Notice:*** The low percentage can be justified and makes sense since we only included 1000 reviews and had 100.000 Businesses in Total. <br>
+   ***Notice:*** The low percentage of Semantic validity can be justified and makes sense since we only included 1000 reviews and had 100.000 Businesses in Total. <br>
    But it is still interesting to see, that 1000 Reviews created meals for about 500 restaurants.
 
 ***Quality Score***
