@@ -325,12 +325,18 @@ We get an overall quality score of **81.24** in our knowledge graph.
 ## WP4 – Knowledge Enrichment
 ### D4.1. Enriched knowledge graph with linked duplicate instances <br>
 
+In our pursuit of enhancing our knowledge graph, we conceived the idea of linking food establishments to hotels based on their respective cities. This approach is designed to offer users a seamless experience when planning trips to restaurants, enabling them to find hotels within the same city, for example for an overnight stay after a long dinner. For instance, in scenarios where one may have drank a bit too much at a restaurant and requires lodging, our enriched knowledge graph becomes a valuable resource. <br> 
+To populate our knowledge graph with hotel data from various cities, we integrated information from (https://data.world/datafiniti/hotel-reviews/workspace/file?filename=7282_1.csv).
 
-We added hotel data from https://data.world/datafiniti/hotel-reviews/workspace/file?filename=7282_1.csv
-We cleaned up the data, removed the reviews as well as duplicate hotels.
+### Cleaning of the Dataset
+In the subsequent step, we rigorously cleaned the data. This involved the removal of duplicate hotels through a meticulous duplicate detection process. Furthermore, we excluded reviews from our dataset, focusing solely on essential properties such as city and hotel names.
 
-Uploaded everything to a new named graph, http://example.com/hotel
-Then we connected them using this sparql query, connecting them by city:
+### Scripts and Data
+All the necessary scripts for the cleaning process, the resulting dataset, the RDF converter, and the final RDF data can be found in the subfolder `hotels_dataset`.
+
+
+Everything has been uploaded to a new named graph at http://example.com/hotel. <br>
+We then established connections using a SPARQL query, linking the entities based on their respective cities.
 ```
 PREFIX schema: <http://schema.org/>
 
@@ -351,7 +357,7 @@ WHERE {
 ```
 
 
-We can query the businesses and the surrounding hotels with this:
+After the linking step, we are now able to query the businesses and the surrounding hotels with the following:
 
 ```
 PREFIX schema: <http://schema.org/>
@@ -365,9 +371,7 @@ WHERE {
 ```
 <img width="1043" alt="Screenshot 2024-01-11 at 09 43 17" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/74101582/fb59597f-3f6c-4fae-99df-313d6dd95576">
 
-
-If we visualize a business we now get the following. The red is the business, and the blue are the hotel IDs it is connected to 
-
+With that, we can now visualize a business, where the red signifies the business entity, and the blue represents the connected hotel IDs.
 <img width="544" alt="business_hotel_visual" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/74101582/6c5bb4b0-dc54-4e7c-9658-69c82a10f5d7">
 
 
