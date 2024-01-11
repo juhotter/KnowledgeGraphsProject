@@ -289,10 +289,10 @@ This query returned a total of 81 results, meaning there are only 81 instances o
       **Metric: Data Completeness:** <br>
       Data Completeness is determined by the ratio of the Sum of all null Values of All Properties contained in the KG to the Sum of all Properties without the meal properties.
 
-      **Semantic validity of businesses:** <br>
+      **Metric: Semantic validity of businesses:** <br>
       Semantic validity is evaluated as the ratio of the Number of businesses that do not contain at least one meal to the Total number of businesses in our knowledge graph. 
 
-      **Syntactic Validity of Property Values (meals):** <br>
+      **Metric: Syntactic Validity of Property Values (meals):** <br>
       Syntactic Validity of Property Values is assessed through the ratio of the Number of meals not adhering to syntactic validity to the Total number of meals in the KG.
 
 3. **Calculating an aggregated quality score:**
