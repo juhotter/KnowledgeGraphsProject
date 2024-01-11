@@ -306,20 +306,23 @@ This query returned a total of 81 results, meaning there are only 81 instances o
    Population Completeness: 12.57% <br>
    Data Completeness: 97.95% <br>
 
-   $$ 0.4 \cdot 12.57 + 0.6 \cdot 97.95 = 63,79 $$
+   $$ 0.4 \cdot 12.57 + 0.6 \cdot 97.95 = 63.79 $$
    
 ***Dimension Accuracy***
 
-   Semantic validity: ? <br>
+   Semantic validity: 0.5% <br>
    Syntactic Validity of Property Values: 97.37% <br>
 
-   $$ 0.5 \cdot ? + 0.5 \cdot 97.37 = 98.68 $$
+   $$ 0.5 \cdot 0.005 + 0.5 \cdot 97.37 = 48.69 $$
+
+   ***Notice:*** The low percentage can be justified and makes sense since we only included 1000 reviews and had 100.000 Businesses in Total. <br>
+   But it is still interesting to see, that 1000 Reviews created meals for about 500 restaurants.
 
 ***Quality Score***
 
-   $$ T(k) = 0.5 \cdot 63,79 + 0.5 \cdot 98.68 = 81.24 $$
+   $$ T(k) = 0.5 \cdot 63,79 + 0.5 \cdot 48.69 = 56.24 $$
 
-We get an overall quality score of **81.24** in our knowledge graph.
+We get an overall quality score of **56.24** in our knowledge graph.
 
 
 ## WP4 – Knowledge Enrichment
