@@ -366,3 +366,8 @@ WHERE {
 <img width="1043" alt="Screenshot 2024-01-11 at 09 43 17" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/74101582/fb59597f-3f6c-4fae-99df-313d6dd95576">
 
 
+If we visualize a business we now get the following. The red is the business, and the yellow are the hotel IDs it is connected to 
+
+<img width="544" alt="business_hotel_visual" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/74101582/6c5bb4b0-dc54-4e7c-9658-69c82a10f5d7">
+
+
