@@ -20,7 +20,7 @@ def convert_csv_to_rdf(csv_file_path, output_file_path):
 
             graph.add((instance_uri, schema.name, Literal(row['name'], lang='en')))
             graph.add((instance_uri, schema.address, Literal(row['address'], lang='en')))
-            graph.add((instance_uri, schema.city, Literal(row['city'], lang='en')))
+            graph.add((instance_uri, schema.addressLocality, Literal(row['city'], lang='en'))) 
             graph.add((instance_uri, schema.country, Literal(row['country'], lang='en')))
 
             # there were some empty lat and long
@@ -30,7 +30,7 @@ def convert_csv_to_rdf(csv_file_path, output_file_path):
                 graph.add((instance_uri, schema.longitude, Literal(float(row['longitude']), datatype=XSD.double)))
 
             graph.add((instance_uri, schema.postalCode, Literal(row['postalCode'], lang='en')))
-            graph.add((instance_uri, schema.province, Literal(row['province'], lang='en')))
+            graph.add((instance_uri, schema.addressRegion, Literal(row['province'], lang='en')))
 
     graph.serialize(destination=output_file_path, format='xml')
 
