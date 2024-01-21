@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:ns1="http://schema.org/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://example.com/business/Pns2l4eNsfO8kk83dixA6A">
+    <rdf:type rdf:resource="http://schema.org/LocalBusiness"/>
+    <ns1:category rdf:resource="http://example.com/category/Doctors"/>
+    <ns1:category rdf:resource="http://example.com/category/Traditional_Chinese_Medicine"/>
+    <ns1:category rdf:resource="http://example.com/category/Naturopathic/Holistic"/>
+    <ns1:category rdf:resource="http://example.com/category/Acupuncture"/>
+    <ns1:category rdf:resource="http://example.com/category/Health_&amp;_Medical"/>
+    <ns1:category rdf:resource="http://example.com/category/Nutritionists"/>
+    <ns1:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#double">34.4266787</ns1:latitude>
+    <ns1:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-119.7111968</ns1:longitude>
+    <ns1:additionalProperty xml:lang="en">True</ns1:additionalProperty>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.com/business/mpf3x-BjTdTEA3yCZrAYPw/hoursAvailable/Saturday">
+    <rdf:type rdf:resource="http://schema.org/OpeningHoursSpecification"/>
+    <ns1:dayOfWeek rdf:resource="http://schema.org/Saturday"/>
+    <ns1:opens rdf:datatype="http://www.w3.org/2001/XMLSchema#time">08:00:00</ns1:opens>
+    <ns1:closes rdf:datatype="http://www.w3.org/2001/XMLSchema#time">14:00:00</ns1:closes>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.com/category/Shipping_Centers">
+    <rdf:type rdf:resource="http://schema.org/Thing"/>
+    <rdfs:label xml:lang="en">Shipping Centers</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.com/business/mpf3x-BjTdTEA3yCZrAYPw">
+    <rdf:type rdf:resource="http://schema.org/LocalBusiness"/>
+    <ns1:category rdf:resource="http://example.com/category/Shipping_Centers"/>
+    <ns1:category rdf:resource="http://example.com/category/Local_Services"/>
+    <ns1:category rdf:resource="http://example.com/category/Notaries"/>
+    <ns1:category rdf:resource="http://example.com/category/Mailbox_Centers"/>
+    <ns1:category rdf:resource="http://example.com/category/Printing_Services"/>
+    <ns1:latitude rdf:datatype="http://www.w3.org/2001/XMLSchema#double">38.551126</ns1:latitude>
+    <ns1:longitude rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-90.335695</ns1:longitude>
+    <ns1:additionalProperty xml:lang="en">True</ns1:additionalProperty>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.com/category/Printing_Services">
+    <rdf:type rdf:resource="http://schema.org/Thing"/>
+    <rdfs:label xml:lang="en">Printing Services</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.com/category/Traditional_Chinese_Medicine">
+    <rdf:type rdf:resource="http://schema.org/Thing"/>
+    <rdfs:label xml:lang="en">Traditional Chinese Medicine</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.com/category/Health_&amp;_Medical">
+    <rdf:type rdf:resource="http://schema.org/Thing"/>
+    <rdfs:label xml:lang="en">Health &amp; Medical</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.com/category/Local_Services">
+    <rdf:type rdf:resource="http://schema.org/Thing"/>
+    <rdfs:label xml:lang="en">Local Services</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.com/business/mpf3x-BjTdTEA3yCZrAYPw/hoursAvailable/Tuesday">
+    <rdf:type rdf:resource="http://schema.org/OpeningHoursSpecification"/>
+    <ns1:dayOfWeek rdf:resource="http://schema.org/Tuesday"/>
+    <ns1:opens rdf:datatype="http://www.w3.org/2001/XMLSchema#time">08:00:00</ns1:opens>
+    <ns1:closes rdf:datatype="http://www.w3.org/2001/XMLSchema#time">18:30:00</ns1:closes>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.com/business/mpf3x-BjTdTEA3yCZrAYPw/hoursAvailable/Thursday">
+    <rdf:type rdf:resource="http://schema.org/OpeningHoursSpecification"/>
+    <ns1:dayOfWeek rdf:resource="http://schema.org/Thursday"/>
+    <ns1:opens rdf:datatype="http://www.w3.org/2001/XMLSchema#time">08:00:00</ns1:opens>
+    <ns1:closes rdf:datatype="http://www.w3.org/2001/XMLSchema#time">18:30:00</ns1:closes>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.com/business/mpf3x-BjTdTEA3yCZrAYPw/hoursAvailable/Friday">
+    <rdf:type rdf:resource="http://schema.org/OpeningHoursSpecification"/>
+    <ns1:dayOfWeek rdf:resource="http://schema.org/Friday"/>
+    <ns1:opens rdf:datatype="http://www.w3.org/2001/XMLSchema#time">08:00:00</ns1:opens>
+    <ns1:closes rdf:datatype="http://www.w3.org/2001/XMLSchema#time">18:30:00</ns1:closes>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.com/category/Naturopathic/Holistic">
+    <rdf:type rdf:resource="http://schema.org/Thing"/>
+    <rdfs:label xml:lang="en">Naturopathic/Holistic</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.com/category/Doctors">
+    <rdf:type rdf:resource="http://schema.org/Thing"/>
+    <rdfs:label xml:lang="en">Doctors</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.com/provenance">
+    <rdf:type rdf:resource="http://schema.org/Provenance"/>
+    <ns1:creationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-01-21T16:17:43.353137</ns1:creationDate>
+    <ns1:dataSource xml:lang="en">https://www.yelp.com/dataset</ns1:dataSource>
+    <ns1:numberOfTriples rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">68</ns1:numberOfTriples>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.com/business/mpf3x-BjTdTEA3yCZrAYPw/hoursAvailable/Monday">
+    <rdf:type rdf:resource="http://schema.org/OpeningHoursSpecification"/>
+    <ns1:dayOfWeek rdf:resource="http://schema.org/Monday"/>
+    <ns1:opens rdf:datatype="http://www.w3.org/2001/XMLSchema#time">00:00:00</ns1:opens>
+    <ns1:closes rdf:datatype="http://www.w3.org/2001/XMLSchema#time">00:00:00</ns1:closes>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.com/business/mpf3x-BjTdTEA3yCZrAYPw/hoursAvailable/Wednesday">
+    <rdf:type rdf:resource="http://schema.org/OpeningHoursSpecification"/>
+    <ns1:dayOfWeek rdf:resource="http://schema.org/Wednesday"/>
+    <ns1:opens rdf:datatype="http://www.w3.org/2001/XMLSchema#time">08:00:00</ns1:opens>
+    <ns1:closes rdf:datatype="http://www.w3.org/2001/XMLSchema#time">18:30:00</ns1:closes>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.com/category/Nutritionists">
+    <rdf:type rdf:resource="http://schema.org/Thing"/>
+    <rdfs:label xml:lang="en">Nutritionists</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.com/category/Notaries">
+    <rdf:type rdf:resource="http://schema.org/Thing"/>
+    <rdfs:label xml:lang="en">Notaries</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.com/category/Acupuncture">
+    <rdf:type rdf:resource="http://schema.org/Thing"/>
+    <rdfs:label xml:lang="en">Acupuncture</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.com/category/Mailbox_Centers">
+    <rdf:type rdf:resource="http://schema.org/Thing"/>
+    <rdfs:label xml:lang="en">Mailbox Centers</rdfs:label>
+  </rdf:Description>
+</rdf:RDF>
