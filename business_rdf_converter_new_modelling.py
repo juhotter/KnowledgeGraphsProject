@@ -42,6 +42,14 @@ for business in data:
             if json_property == "attributes":
                 for attr_key, attr_value in business[json_property].items():
                     g.add((business_uri, schema_property, Literal(attr_value, lang="en")))
+
+                    # Check for "BusinessAcceptsCreditCards" attribute
+                    if attr_key == "BusinessAcceptsCreditCards" and attr_value.lower() == "true":
+                        g.add((business_uri, schema.paymentAccepted, Literal("Credit Card", lang="en")))
+
+                    if attr_key == "RestaurantsReservations" and attr_value.lower() == "true":
+                        g.add((business_uri, schema.acceptsReservations, Literal("True", lang="en")))
+
             elif json_property == "hours" and business[json_property] is not None:
                 for day, hours in business[json_property].items():
                     hours_uri = URIRef(f"{business_uri}/hoursAvailable/{day}")
