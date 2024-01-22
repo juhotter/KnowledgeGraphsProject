@@ -1,4 +1,4 @@
-  org.eclipse.rdf4j.sail.shacl.GraphDBShaclSailValidationException: Failed SHACL validation
+org.eclipse.rdf4j.sail.shacl.GraphDBShaclSailValidationException: Failed SHACL validation
 
 @prefix dash: <http://datashapes.org/dash#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -9,363 +9,308 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-_:89db73b3d5ca4a04930022ddb28cb71212655 a sh:ValidationReport;
+_:89db73b3d5ca4a04930022ddb28cb71214567 a sh:ValidationReport;
   sh:conforms false;
   rdf4j:truncated false;
-  sh:result _:89db73b3d5ca4a04930022ddb28cb71212656, _:89db73b3d5ca4a04930022ddb28cb71212657,
-    _:89db73b3d5ca4a04930022ddb28cb71212658, _:89db73b3d5ca4a04930022ddb28cb71212659,
-    _:89db73b3d5ca4a04930022ddb28cb71212660, _:89db73b3d5ca4a04930022ddb28cb71212661,
-    _:89db73b3d5ca4a04930022ddb28cb71212662, _:89db73b3d5ca4a04930022ddb28cb71212663,
-    _:89db73b3d5ca4a04930022ddb28cb71212664, _:89db73b3d5ca4a04930022ddb28cb71212665,
-    _:89db73b3d5ca4a04930022ddb28cb71212666, _:89db73b3d5ca4a04930022ddb28cb71212667,
-    _:89db73b3d5ca4a04930022ddb28cb71212668, _:89db73b3d5ca4a04930022ddb28cb71212669,
-    _:89db73b3d5ca4a04930022ddb28cb71212670, _:89db73b3d5ca4a04930022ddb28cb71212671,
-    _:89db73b3d5ca4a04930022ddb28cb71212672, _:89db73b3d5ca4a04930022ddb28cb71212673,
-    _:89db73b3d5ca4a04930022ddb28cb71212674, _:89db73b3d5ca4a04930022ddb28cb71212675,
-    _:89db73b3d5ca4a04930022ddb28cb71212676, _:89db73b3d5ca4a04930022ddb28cb71212677,
-    _:89db73b3d5ca4a04930022ddb28cb71212678, _:89db73b3d5ca4a04930022ddb28cb71212679,
-    _:89db73b3d5ca4a04930022ddb28cb71212680, _:89db73b3d5ca4a04930022ddb28cb71212681,
-    _:89db73b3d5ca4a04930022ddb28cb71212682, _:89db73b3d5ca4a04930022ddb28cb71212683,
-    _:89db73b3d5ca4a04930022ddb28cb71212684, _:89db73b3d5ca4a04930022ddb28cb71212685,
-    _:89db73b3d5ca4a04930022ddb28cb71212686, _:89db73b3d5ca4a04930022ddb28cb71212687,
-    _:89db73b3d5ca4a04930022ddb28cb71212688, _:89db73b3d5ca4a04930022ddb28cb71212689,
-    _:89db73b3d5ca4a04930022ddb28cb71212690, _:89db73b3d5ca4a04930022ddb28cb71212691,
-    _:89db73b3d5ca4a04930022ddb28cb71212692, _:89db73b3d5ca4a04930022ddb28cb71212693,
-    _:89db73b3d5ca4a04930022ddb28cb71212694, _:89db73b3d5ca4a04930022ddb28cb71212695,
-    _:89db73b3d5ca4a04930022ddb28cb71212696 .
+  sh:result _:89db73b3d5ca4a04930022ddb28cb71214568, _:89db73b3d5ca4a04930022ddb28cb71214569,
+    _:89db73b3d5ca4a04930022ddb28cb71214570, _:89db73b3d5ca4a04930022ddb28cb71214571,
+    _:89db73b3d5ca4a04930022ddb28cb71214572, _:89db73b3d5ca4a04930022ddb28cb71214573,
+    _:89db73b3d5ca4a04930022ddb28cb71214574, _:89db73b3d5ca4a04930022ddb28cb71214575,
+    _:89db73b3d5ca4a04930022ddb28cb71214576, _:89db73b3d5ca4a04930022ddb28cb71214577,
+    _:89db73b3d5ca4a04930022ddb28cb71214578, _:89db73b3d5ca4a04930022ddb28cb71214579,
+    _:89db73b3d5ca4a04930022ddb28cb71214580, _:89db73b3d5ca4a04930022ddb28cb71214581,
+    _:89db73b3d5ca4a04930022ddb28cb71214582, _:89db73b3d5ca4a04930022ddb28cb71214583,
+    _:89db73b3d5ca4a04930022ddb28cb71214584, _:89db73b3d5ca4a04930022ddb28cb71214585,
+    _:89db73b3d5ca4a04930022ddb28cb71214586, _:89db73b3d5ca4a04930022ddb28cb71214587,
+    _:89db73b3d5ca4a04930022ddb28cb71214588, _:89db73b3d5ca4a04930022ddb28cb71214589,
+    _:89db73b3d5ca4a04930022ddb28cb71214590, _:89db73b3d5ca4a04930022ddb28cb71214591,
+    _:89db73b3d5ca4a04930022ddb28cb71214592, _:89db73b3d5ca4a04930022ddb28cb71214593,
+    _:89db73b3d5ca4a04930022ddb28cb71214594, _:89db73b3d5ca4a04930022ddb28cb71214595,
+    _:89db73b3d5ca4a04930022ddb28cb71214596, _:89db73b3d5ca4a04930022ddb28cb71214597,
+    _:89db73b3d5ca4a04930022ddb28cb71214598, _:89db73b3d5ca4a04930022ddb28cb71214599,
+    _:89db73b3d5ca4a04930022ddb28cb71214600, _:89db73b3d5ca4a04930022ddb28cb71214601,
+    _:89db73b3d5ca4a04930022ddb28cb71214602 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212656 a sh:ValidationResult;
-  sh:focusNode <http://example.com/business/7-Vu4z0QdhCFizP-bHxoxQ>;
-  rsx:shapesGraph rdf4j:SHACLShapeGraph;
-  sh:resultPath <http://schema.org/additionalProperty>;
-  sh:sourceConstraintComponent sh:MinCountConstraintComponent;
-  sh:resultSeverity sh:Violation;
-  sh:sourceShape _:1c3507c1-8047-460f-aefa-13d5438132fa-13 .
-
-_:1c3507c1-8047-460f-aefa-13d5438132fa-13 a sh:PropertyShape;
-  sh:path <http://schema.org/additionalProperty>;
-  sh:minCount 1 .
-
-_:89db73b3d5ca4a04930022ddb28cb71212657 a sh:ValidationResult;
-  sh:focusNode <http://example.com/business/0ICfbEImE0gUZc4kSZ7QHg>;
-  rsx:shapesGraph rdf4j:SHACLShapeGraph;
-  sh:resultPath <http://schema.org/additionalProperty>;
-  sh:sourceConstraintComponent sh:MinCountConstraintComponent;
-  sh:resultSeverity sh:Violation;
-  sh:sourceShape _:1c3507c1-8047-460f-aefa-13d5438132fa-13 .
-
-_:89db73b3d5ca4a04930022ddb28cb71212658 a sh:ValidationResult;
-  sh:focusNode <http://example.com/business/vSZRxp9u-zR5hEvOj4J5zA>;
-  rsx:shapesGraph rdf4j:SHACLShapeGraph;
-  sh:resultPath <http://schema.org/additionalProperty>;
-  sh:sourceConstraintComponent sh:MinCountConstraintComponent;
-  sh:resultSeverity sh:Violation;
-  sh:sourceShape _:1c3507c1-8047-460f-aefa-13d5438132fa-13 .
-
-_:89db73b3d5ca4a04930022ddb28cb71212659 a sh:ValidationResult;
-  sh:focusNode <http://example.com/business/G84WORbq6Muqq2SIthWOeQ>;
-  rsx:shapesGraph rdf4j:SHACLShapeGraph;
-  sh:resultPath <http://schema.org/additionalProperty>;
-  sh:sourceConstraintComponent sh:MinCountConstraintComponent;
-  sh:resultSeverity sh:Violation;
-  sh:sourceShape _:1c3507c1-8047-460f-aefa-13d5438132fa-13 .
-
-_:89db73b3d5ca4a04930022ddb28cb71212660 a sh:ValidationResult;
-  sh:focusNode <http://example.com/business/DTuAFwqf2lknagHDT4pUMA>;
-  rsx:shapesGraph rdf4j:SHACLShapeGraph;
-  sh:resultPath <http://schema.org/additionalProperty>;
-  sh:sourceConstraintComponent sh:MinCountConstraintComponent;
-  sh:resultSeverity sh:Violation;
-  sh:sourceShape _:1c3507c1-8047-460f-aefa-13d5438132fa-13 .
-
-_:89db73b3d5ca4a04930022ddb28cb71212661 a sh:ValidationResult;
-  sh:focusNode <http://example.com/business/h8iDZcXLDicI_Wg8fwl-ig>;
-  rsx:shapesGraph rdf4j:SHACLShapeGraph;
-  sh:resultPath <http://schema.org/additionalProperty>;
-  sh:sourceConstraintComponent sh:MinCountConstraintComponent;
-  sh:resultSeverity sh:Violation;
-  sh:sourceShape _:1c3507c1-8047-460f-aefa-13d5438132fa-13 .
-
-_:89db73b3d5ca4a04930022ddb28cb71212662 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214568 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/HZtkTPfSshfRjpQR7x1Raw>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 a sh:PropertyShape;
+_:6298a251-c932-4dea-8272-3310f076b795-14 a sh:PropertyShape;
   sh:path <http://schema.org/hoursAvailable>;
   sh:minCount 1 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212663 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214569 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/dygflr6j51vf3-lM5pUIkw>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212664 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214570 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/D5V0Fawd6ODVgqCY8xngsw>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212665 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214571 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/Up0a_4ZYoU5tTN6HXq59Lw>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212666 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214572 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/7UxNDF6ZpabC3O0-Qbg3Xw>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212667 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214573 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/Es39sSDXiReBthHLBSD_Xw>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212668 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214574 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/_uyLoz0BbrQIVmUEm_td1Q>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212669 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214575 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/jNL5KUPz2-tHUJM__ysSaw>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212670 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214576 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/gGyqnAlpFrka_qzpO7j4lQ>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212671 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214577 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/aZNiVR6oAMQX5__yGPvYsg>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212672 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214578 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/p7C2l6MyJLq9lKMmUhjqMg>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212673 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214579 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/YjUWPpI6HXG530lwP-fb2A>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212674 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214580 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/l4aS1QVy_bGnwUXSJzpbsw>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212675 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214581 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/At6iwGTy6bDxc7PUEOTvQw>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212676 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214582 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/zwfN21b6gN2XGjNG6MYNzQ>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212677 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214583 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/B5XSoSG3SfvQGtKEGQ1tSQ>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212678 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214584 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/47oPgHNdVR5x_oFNbauNug>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212679 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214585 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/1ys1jf1-4EuiHONfpHWdwg>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212680 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214586 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/x-SCuOwghy4GlZdVOKjt4g>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212681 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214587 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/vSZRxp9u-zR5hEvOj4J5zA>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212682 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214588 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/OUuUc_qERdvTrnpj1vSLaw>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212683 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214589 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/G84WORbq6Muqq2SIthWOeQ>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212684 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214590 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/fBNjTSdPJ1mtTzIHYpQnDw>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212685 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214591 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/8hgo446H2HoYlZocEi1SJw>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212686 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214592 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/MgezKZ0Fp250omk3EAgnjw>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212687 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214593 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/D3DMIr-I0AKzlIKdErxHGg>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212688 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214594 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/P50W1jWWLTFjuEUdkGZJdA>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212689 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214595 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/alUk6OwNhofyc90NDMDY-Q>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212690 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214596 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/arpAjDjebOzjwwysIGIwAg>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212691 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214597 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/1_nd9Hcswx4K4FmZZQPMVw>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212692 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214598 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/P10BsKUeoeCeVoK4BS2u0w>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212693 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214599 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/UhjfJpaAzgSYrTZ_dMMF1Q>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212694 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214600 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/aOJdNN7IsxR7xy9H_bJuLQ>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212695 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214601 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/QKFojAIRYfQQzwssuoKjzw>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
 
-_:89db73b3d5ca4a04930022ddb28cb71212696 a sh:ValidationResult;
+_:89db73b3d5ca4a04930022ddb28cb71214602 a sh:ValidationResult;
   sh:focusNode <http://example.com/business/EDjEVzmoQVHzboFqC-M6Ew>;
   rsx:shapesGraph rdf4j:SHACLShapeGraph;
   sh:resultPath <http://schema.org/hoursAvailable>;
   sh:sourceConstraintComponent sh:MinCountConstraintComponent;
   sh:resultSeverity sh:Violation;
-  sh:sourceShape _:0c15eff4-7ee3-4b59-931e-e611f728b2f4-15 .
+  sh:sourceShape _:6298a251-c932-4dea-8272-3310f076b795-14 .
