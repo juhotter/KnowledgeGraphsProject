@@ -232,7 +232,7 @@ We can see that all the hours saved do conform to our pattern. This means our sc
 
 **Semantic validity of businesses**
 
-To semantically validate our knowledge graph, we want to make sure every business offers at least one meal. To do this, we impose a SHACL constraint that does exactly this. In order to use SHACL constraints in our GraphDB repository, we first had to change the settings, such that it accommodates SHACL constraints. After this is done, we can upload our .ttl SHACL file as we would normal RDF data, but importing it into a special named graph, the SHACL constraint graph defined in the settings of the repository. The default constraint graph is *http://rdf4j.org/schema/rdf4j#SHACLShapeGraph*. Since we want to impose the restriction that every business must offer at least one meal, our SHACL file looks as follows.
+To semantically validate our knowledge graph, we want to make sure every business offers at least one meal. To do this, we impose a SHACL constraint that does exactly this. In order to use SHACL constraints in our GraphDB repository, we first had to change the settings, such that it accommodates SHACL constraints. After this is done, we can upload our .ttl SHACL file as we would normal RDF data, but importing it into a special named graph, the SHACL constraint graph defined in the settings of the repository. The default constraint graph is *http://rdf4j.org/schema/rdf4j#SHACLShapeGraph*. Since we want to impose the restriction that every business must offer at least one meal, our SHACL file looks as follows. We also check for every other common property of each FoodEstablishment, them being *type, identifier, name, address, addressLocality, addressRegion, postalCode, latitude, longitude, ratingValue, reviewCount, isOpen, category* and *hoursAvailable* wheter everey instance possesses at least one value for each of those. The first lines of our foodEstablishment.ttl file look like this:
 
 ```
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
@@ -242,13 +242,20 @@ To semantically validate our knowledge graph, we want to make sure every busines
 
 ex:BusinessShape
   a sh:NodeShape ;
-  sh:targetClass schema:LocalBusiness ;
+  sh:targetClass schema:FoodEstablishment ;
   sh:property [
     sh:path schema:menu ;
     sh:minCount 1 ;
-  ] .
+  ] ;
+  sh:property [
+    sh:path ns1:name ;
+    sh:minCount 1 ;
+  ] ;
 ```
 After having uploaded the file to the SHACL repository, we get a *Failed SHACL validation* error, as naturally not all instances comply to our restriction. the entire validation output is found in the shaclValidationOutput.txt file.
+There were a total of 35 instances that didn't comply to these restraints. After Investigation, we found out that all instances failed on the hoursAvailable minCount.
+
+With 35 erroneous instances out of a total 568 FoodEstablishment, we get a score of 93.84% in this category.
 
 **Syntactic validity of property values** <br>
 The values here would be the individual meals that come from the Named Entity Recognition (NER), such as "Burger," but also variations like "Bur’ger." These are then compared using a regular expression (REGEX) to filter out meals containing special characters or numbers. For example, "Bur’ger" should not be included, only "Burger." <br>
@@ -313,14 +320,14 @@ This query returned a total of 81 results, meaning there are only 81 instances o
    Semantic validity: 0.5% <br>
    Syntactic Validity of Property Values: 97.37% <br>
 
-   $$ 0.5 \cdot 0.005 + 0.5 \cdot 97.37 = 48.69 $$
+   $$ 0.5 \cdot 93.83 + 0.5 \cdot 97.37 = 95.6 $$
 
    ***Notice:*** The low percentage of Semantic validity can be justified and makes sense since we only included 1000 reviews and had 100.000 Businesses in Total. <br>
    But it is still interesting to see, that 1000 Reviews created meals for about 500 restaurants.
 
 ***Quality Score***
 
-   $$ T(k) = 0.5 \cdot 63,79 + 0.5 \cdot 48.69 = 56.24 $$
+   $$ T(k) = 0.5 \cdot 63,79 + 0.5 \cdot 95.6 = 80.19 $$
 
 We get an overall quality score of **56.24** in our knowledge graph.
 
@@ -390,4 +397,33 @@ Further, we can now visualize a business, where the red signifies the business e
 The connected hotel IDs show that those are the hotels that would be in the same city as the restaurant.
 <img width="544" alt="business_hotel_visual" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/74101582/6c5bb4b0-dc54-4e7c-9658-69c82a10f5d7">
 
+**Geographical coordinates**
 
+Next, we also wanted to connect the businesses and hotels by their geographical coordinates. These are given as latitude and longitude in each of the instances for hotel and business. For this, we followed the same procedure as above, but only with a slightly augmented query, checking if both the latitude and longitude of both establishments fall inside of 0.05 degrees within another. The reason we first check the city and only after it the geographical coordinates is because of time performance, as it would otherwise be infeasable to loop over each business and hotel. This is of course a slight simplification, as locations within a certain geographical interval do not always fall in the same city, but the benefits of this simplyfication outweigh the edge cases. We chose 0.05 degrees in both directions as our baseline since this corresponds to 6 km, which is a manageable distance even by foot. Below the query is shown the output with additional columns showing the latitude and longitude distance between both businesses.
+```
+PREFIX schema: <http://schema.org/>
+
+INSERT {
+  GRAPH <http://example.com/connectedByGeo> {
+    ?business schema:connectedTo ?hotel .
+  }
+}
+WHERE {
+  GRAPH <http://example.com/business> {
+    ?business schema:addressLocality ?city ;
+               schema:latitude ?businessLat ;
+               schema:longitude ?businessLong .
+  }
+  GRAPH <http://example.com/hotel> {
+    ?hotel schema:addressLocality ?city ;
+           schema:latitude ?hotelLat ;
+           schema:longitude ?hotelLong .
+    FILTER (?hotel != ?business)  # exclude self-connections
+    FILTER (ABS(?businessLat - ?hotelLat) <= 0.1 && ABS(?businessLong - ?hotelLong) <= 0.1)
+  }
+}
+```
+<img width="951" alt="Screenshot 2024-01-22 at 16 29 44" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/74101582/bf7cc2ff-5086-4016-898e-59b1e535fd40">
+
+This resulted in a total of 39587 connections, which is about 36.21% of the 109299 connections made with only the city.
+compared to our original dataset of 100000 businesses, the augmentations increased our KG by 39.58% or 109.29% respectively, which is a lot.
