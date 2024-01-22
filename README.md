@@ -456,14 +456,10 @@ The structured dataset from Yelp that we utilize contains an "attributes" proper
 Until now we just mapped those properties to the business via the schema.org *additionalProperty* property, which makes no real sense. <br>
 <img width="541" alt="image" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/64087284/af613c50-f947-4d86-9f4c-1c2c231bc1c1"> <br>
 Now we started to look at those properties and to find out which properties have an equivalent to schema.org. <br>
-For example, when the additional Attribute is *"BusinessAcceptsCreditCards": "True",*, then we could instead of saving it to the *additionalProperty* property in the RDF, <br>
-map it to the schema.org property *<ns1:paymentAccepted xml:lang="en">Credit Card</ns1:paymentAccepted>*. <br>
+For example, when the additional Attribute is *"BusinessAcceptsCreditCards": "True",*, then we could instead of saving it to the *additionalProperty* property in the RDF,
+map it to the schema.org property *paymentAccepted* <br>
+<img width="519" alt="image" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/64087284/677c2154-6279-4480-8a99-f65c3bf088a4"> <br>
 We employed this approach for a few properties that seemed sensible. However, due to the dataset's size, it is impractical to continue in the same manner. This is intended to provide an initial concept and starting point for how the modeling of this property could be pursued.
-
-
-
-
-
 
 
 
