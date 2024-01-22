@@ -5,7 +5,7 @@
 
 ex:BusinessShape
   a sh:NodeShape ;
-  sh:targetClass schema:LocalBusiness ;
+  sh:targetClass schema:FoodEstablishment ;
   sh:property [
     sh:path rdf:type ;
     sh:minCount 2 ; # At least two types, LocalBusiness and Rating
