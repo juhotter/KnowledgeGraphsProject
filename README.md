@@ -232,7 +232,7 @@ We can see that all the hours saved do conform to our pattern. This means our sc
 
 **Semantic validity of businesses**
 
-To semantically validate our knowledge graph, we want to make sure every business offers at least one meal. To do this, we impose a SHACL constraint that does exactly this. In order to use SHACL constraints in our GraphDB repository, we first had to change the settings, such that it accommodates SHACL constraints. After this is done, we can upload our .ttl SHACL file as we would normal RDF data, but importing it into a special named graph, the SHACL constraint graph defined in the settings of the repository. The default constraint graph is *http://rdf4j.org/schema/rdf4j#SHACLShapeGraph*. Since we want to impose the restriction that every business must offer at least one meal, our SHACL file looks as follows.
+To semantically validate our knowledge graph, we want to make sure every business offers at least one meal. To do this, we impose a SHACL constraint that does exactly this. In order to use SHACL constraints in our GraphDB repository, we first had to change the settings, such that it accommodates SHACL constraints. After this is done, we can upload our .ttl SHACL file as we would normal RDF data, but importing it into a special named graph, the SHACL constraint graph defined in the settings of the repository. The default constraint graph is *http://rdf4j.org/schema/rdf4j#SHACLShapeGraph*. Since we want to impose the restriction that every business must offer at least one meal, our SHACL file looks as follows. We also check for every other common property of each FoodEstablishment, them being *type, identifier, name, address, addressLocality, addressRegion, postalCode, latitude, longitude, ratingValue, reviewCount, isOpen, category* and *hoursAvailable* wheter everey instance possesses at least one value for each of those. The first lines of our foodEstablishment.ttl file look like this:
 
 ```
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
@@ -242,13 +242,20 @@ To semantically validate our knowledge graph, we want to make sure every busines
 
 ex:BusinessShape
   a sh:NodeShape ;
-  sh:targetClass schema:LocalBusiness ;
+  sh:targetClass schema:FoodEstablishment ;
   sh:property [
     sh:path schema:menu ;
     sh:minCount 1 ;
-  ] .
+  ] ;
+  sh:property [
+    sh:path ns1:name ;
+    sh:minCount 1 ;
+  ] ;
 ```
 After having uploaded the file to the SHACL repository, we get a *Failed SHACL validation* error, as naturally not all instances comply to our restriction. the entire validation output is found in the shaclValidationOutput.txt file.
+There were a total of 35 instances that didn't comply to these restraints. After Investigation, we found out that all instances failed on the hoursAvailable minCount.
+
+With 35 erroneous instances out of a total 568 FoodEstablishment, we get a score of 93.84% in this category.
 
 **Syntactic validity of property values** <br>
 The values here would be the individual meals that come from the Named Entity Recognition (NER), such as "Burger," but also variations like "Bur’ger." These are then compared using a regular expression (REGEX) to filter out meals containing special characters or numbers. For example, "Bur’ger" should not be included, only "Burger." <br>
