@@ -433,8 +433,8 @@ compared to our original dataset of 100000 businesses, the augmentations increas
 The shacle error detection output can be found under *shaclValidationOutput.txt* <br>
 
 How would we clean now the dataset?
-- Concerning food establishments that lack at least one meal, we propose removing those establishments from our Knowledge Graph. Therefore, the cleaning step would involve a straightforward deletion process. <br>
-- Regarding meals that do not adhere to our proposed schema or are incorrect due to Named Entity Recognition (NER) issues, we have two options. We can either individually examine <br> those properties causing errors and fix them with human domain knowledge or simply remove them. <br>
+- Concerning food establishments that lack at least one meal, we propose removing those establishments from our Knowledge Graph. Therefore, the cleaning step would involve a straightforward deletion process of food establishments. <br>
+- Regarding single meals that do not adhere to our proposed schema or are incorrect due to Named Entity Recognition (NER) issues, we have two options. We can either individually examine <br> those properties causing errors and fix them with human domain knowledge or simply remove them. <br>
 
 
 ##  Extra-WP - Revisit Knowledge Modelling
