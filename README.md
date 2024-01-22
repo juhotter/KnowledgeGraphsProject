@@ -397,4 +397,33 @@ Further, we can now visualize a business, where the red signifies the business e
 The connected hotel IDs show that those are the hotels that would be in the same city as the restaurant.
 <img width="544" alt="business_hotel_visual" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/74101582/6c5bb4b0-dc54-4e7c-9658-69c82a10f5d7">
 
+**Geographical coordinates**
 
+Next, we also wanted to connect the businesses and hotels by their geographical coordinates. These are given as latitude and longitude in each of the instances for hotel and business. For this, we followed the same procedure as above, but only with a slightly augmented query, checking if both the latitude and longitude of both establishments fall inside of 0.05 degrees within another. The reason we first check the city and only after it the geographical coordinates is because of time performance, as it would otherwise be infeasable to loop over each business and hotel. This is of course a slight simplification, as locations within a certain geographical interval do not always fall in the same city, but the benefits of this simplyfication outweigh the edge cases. We chose 0.05 degrees in both directions as our baseline since this corresponds to 6 km, which is a manageable distance even by foot. Below the query is shown the output with additional columns showing the latitude and longitude distance between both businesses.
+```
+PREFIX schema: <http://schema.org/>
+
+INSERT {
+  GRAPH <http://example.com/connectedByGeo> {
+    ?business schema:connectedTo ?hotel .
+  }
+}
+WHERE {
+  GRAPH <http://example.com/business> {
+    ?business schema:addressLocality ?city ;
+               schema:latitude ?businessLat ;
+               schema:longitude ?businessLong .
+  }
+  GRAPH <http://example.com/hotel> {
+    ?hotel schema:addressLocality ?city ;
+           schema:latitude ?hotelLat ;
+           schema:longitude ?hotelLong .
+    FILTER (?hotel != ?business)  # exclude self-connections
+    FILTER (ABS(?businessLat - ?hotelLat) <= 0.1 && ABS(?businessLong - ?hotelLong) <= 0.1)
+  }
+}
+```
+<img width="951" alt="Screenshot 2024-01-22 at 16 29 44" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/74101582/bf7cc2ff-5086-4016-898e-59b1e535fd40">
+
+This resulted in a total of 39587 connections, which is about 36.21% of the 109299 connections made with only the city.
+compared to our original dataset of 100000 businesses, the augmentations increased our KG by 39.58% or 109.29% respectively, which is a lot.
