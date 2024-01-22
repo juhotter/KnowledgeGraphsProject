@@ -4,3 +4,4 @@ hotels_dataset/hotels_data.csv filter=lfs diff=lfs merge=lfs -text
 hotels_dataset/hotels_data_noReviews.csv filter=lfs diff=lfs merge=lfs -text
 hotels_dataset/hotels_data_filtered.csv filter=lfs diff=lfs merge=lfs -text
 hotels_dataset/hotels.rdf filter=lfs diff=lfs merge=lfs -text
+yelp_dataset/business_withClasses_and_provenance.rdf filter=lfs diff=lfs merge=lfs -text
