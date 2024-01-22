@@ -32,7 +32,7 @@ The mapping between is done via the **businessId**, a property in both datasets.
 The result should be something like a meal menu for each business.
 
 
-### D1.2. RDF data created from the sources (13.12.2023)
+### D1.2. RDF data created from the sources (13.12.2023) (Hint: See section Extra-WP - Revisit Knowledge Modelling)
 As outlined in the first work package (WP1), we have two different datasets.<br>
 For both datasets, we provided a Python script, which converts the two JSON datasets from WP1, to RDF data.<br>
 This RDF data then can be used to host the knowledge graph on WP3.
@@ -471,7 +471,9 @@ map it to the schema.org property *paymentAccepted* <br>
 <img width="519" alt="image" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/64087284/677c2154-6279-4480-8a99-f65c3bf088a4"> <br>
 We employed this approach for a few properties that seemed sensible. However, due to the dataset's size, it is impractical to continue in the same manner. This is intended to provide an initial concept and starting point for how the modeling of this property could be pursued.
 
-
+## WP 6 - Presentation
+The presentation can be found under: <br>
+https://docs.google.com/presentation/d/1yqre0ugxCmWim6iGnOxCvcV0aj4rGTAaGO3Yqmwv0BM/edit?usp=sharing
 
 
 
