@@ -425,5 +425,26 @@ WHERE {
 ```
 <img width="951" alt="Screenshot 2024-01-22 at 16 29 44" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/74101582/bf7cc2ff-5086-4016-898e-59b1e535fd40">
 
-This resulted in a total of 39587 connections, which is about 36.21% of the 109299 connections made with only the city.
+This resulted in a total of 39587 connections, about 36.21% of the 109299 connections made with only the city.
 compared to our original dataset of 100000 businesses, the augmentations increased our KG by 39.58% or 109.29% respectively, which is a lot.
+
+##  Extra-WP - Revisit Knowledge Modelling
+As we found areas for improvement in our modeling approach in WP1, we have chosen to revisit WP1 and make necessary adjustments to enhance the overall modeling. <br>
+It's crucial to highlight that these adjustments specifically relate to properties that were not employed in assessments and do not have any impact on the rest of WP.
+Hence, it is not required to revisit the subsequent WP with the updated modeling.
+<br> <br>
+We encountered three major issues. <br>
+Firstly, the opening hours were represented as simple strings instead of utilizing a dedicated schema.org notation. <br>
+Secondly, the categories associated with a restaurant, such as steakhouse or seafood, were stored in an array rather than individually as separate properties. <br>
+The third issue pertained to a restaurant having multiple additional pieces of information, such as the property **card_accepted**, which were stored in a basic JSON format with strings instead of being mapped to dedicated schema.org properties.
+
+### First issue -  Hours Property
+<img width="617" alt="image" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/64087284/5b5efc26-7ed2-4afe-aa33-f0fbe7df6c22">
+As you can see, we had modeled the opening hours via simple strings. Now we changed, so that we make use of the schema.org *dayOfTheWeek*, *openingHoursSpecification* , *opens* and *closes*. Then the RDF File looks like the following.
+<img width="765" alt="image" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/64087284/7523e0a6-0153-4500-974d-cc7d8e689612">
+
+
+
+
+
+
