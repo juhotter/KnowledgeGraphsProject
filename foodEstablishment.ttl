@@ -60,10 +60,6 @@ ex:BusinessShape
     sh:datatype xsd:integer ;
   ] ;
   sh:property [
-    sh:path ns1:additionalProperty ;
-    sh:minCount 1 ;
-  ] ;
-  sh:property [
     sh:path ns1:category ;
     sh:minCount 1 ;
   ] ;
