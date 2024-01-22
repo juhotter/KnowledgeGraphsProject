@@ -320,14 +320,14 @@ This query returned a total of 81 results, meaning there are only 81 instances o
    Semantic validity: 0.5% <br>
    Syntactic Validity of Property Values: 97.37% <br>
 
-   $$ 0.5 \cdot 0.005 + 0.5 \cdot 97.37 = 48.69 $$
+   $$ 0.5 \cdot 93.83 + 0.5 \cdot 97.37 = 95.6 $$
 
    ***Notice:*** The low percentage of Semantic validity can be justified and makes sense since we only included 1000 reviews and had 100.000 Businesses in Total. <br>
    But it is still interesting to see, that 1000 Reviews created meals for about 500 restaurants.
 
 ***Quality Score***
 
-   $$ T(k) = 0.5 \cdot 63,79 + 0.5 \cdot 48.69 = 56.24 $$
+   $$ T(k) = 0.5 \cdot 63,79 + 0.5 \cdot 95.6 = 80.19 $$
 
 We get an overall quality score of **56.24** in our knowledge graph.
 
