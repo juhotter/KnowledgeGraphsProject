@@ -428,8 +428,18 @@ WHERE {
 This resulted in a total of 39587 connections, about 36.21% of the 109299 connections made with only the city.
 compared to our original dataset of 100000 businesses, the augmentations increased our KG by 39.58% or 109.29% respectively, which is a lot.
 
+##  WP5 - Knowledge Cleaning
+### D5.1. Error detection implementation and a report of the found errors (31.01.2023)
+The shacle error detection output can be found under *shaclValidationOutput.txt* <br>
+
+How would we clean now the dataset?
+- Concerning food establishments that lack at least one meal, we propose removing those establishments from our Knowledge Graph. Therefore, the cleaning step would involve a straightforward deletion process. <br>
+- Regarding meals that do not adhere to our proposed schema or are incorrect due to Named Entity Recognition (NER) issues, we have two options. We can either individually examine <br> those properties causing errors and fix them with human domain knowledge or simply remove them. <br>
+
+
 ##  Extra-WP - Revisit Knowledge Modelling
 As we found areas for improvement in our modeling approach in WP1, we have chosen to revisit WP1 and make necessary adjustments to enhance the overall modeling. <br>
+Therefore we changed the python rdf mapper: the new one can be found under the name *business_rdf_converter_new_modelling.py*
 It's crucial to highlight that these adjustments specifically relate to properties that were not employed in assessments and do not have any impact on the rest of WP.
 Hence, it is not required to revisit the subsequent WP with the updated modeling.
 <br> <br>
