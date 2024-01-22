@@ -438,19 +438,19 @@ Firstly, the opening hours were represented as simple strings instead of utilizi
 Secondly, the categories associated with a restaurant, such as steakhouse or seafood, were stored in an array rather than individually as separate properties. <br>
 The third issue pertained to a restaurant having multiple additional pieces of information, such as the property **card_accepted**, which were stored in a basic JSON format with strings instead of being mapped to dedicated schema.org properties.
 
-### First issue -  Hours Property<br>
+### First issue - Hours Property<br>
 <img width="617" alt="image" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/64087284/5b5efc26-7ed2-4afe-aa33-f0fbe7df6c22"> <br>
 As you can see, we modeled the hours available via simple strings.<br>
 Now we changed, so that we make use of the schema.org *dayOfTheWeek*, *openingHoursSpecification*, *opens*, and *closes*. <br>
 Then the RDF File looks like the following. <br>
 <img width="765" alt="image" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/64087284/7523e0a6-0153-4500-974d-cc7d8e689612"> <br>
 
-### Second issue -  Category Property <br>
+### Second issue - Category Property <br>
 This was quite unspectacular. <br>
 Rather than consolidating all categories into a single property, we opted to split them, resulting in the following structure: <br>
 <img width="719" alt="image" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/64087284/12e5e7bc-6abc-4109-924c-71dc6fb67b26"> <br>
 
-### Third issue -  Category Property <br>
+### Third issue - Attributes Property <br>
 The structured dataset from Yelp that we utilize contains an "attributes" property, which encompasses various additional information without a distinct structure.<br>
 <img width="827" alt="image" src="https://github.com/juhotter/KnowledgeGraphsProject/assets/64087284/afc6928a-d42e-4f23-a967-fc55d5b218af"> <br>
 Until now we just mapped those properties to the business via the schema.org *additionalProperty* property, which makes no real sense. <br>
