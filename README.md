@@ -131,7 +131,7 @@ WHERE {
 
 To assess the quality score of our knowledge graph, we will evaluate it based on two dimensions: correctness and completeness. Each dimension comprises two distinct metrics.<br>
 
-#### Dimension Completeness
+#### Dimension: Completeness
 For this dimension, we decided to use the following two metrics:<br>
 
 **Population completeness:** <br>
@@ -190,7 +190,7 @@ Total | name | address | addressLocality | addressRegion | postalCode | latitude
 As we can see, almost all the entities have all the properties, and only for three distinct attributes (amongst them the less important additionalProperty), we have entities that are missing those attributes. If we take the average of all the properties, we get a completeness of 
 **97.95%**.
 
-#### Dimension Correctness(Accuracy):
+#### Dimension: Correctness(Accuracy):
 For this dimension, we decided to use the following two metrics: <br>
 
 <!---
@@ -294,7 +294,7 @@ This query returned a total of 81 results, meaning there are only 81 instances o
       Population Completeness is calculated as the ratio of Average Meals per Food Establishment in the KG to Average Meals per Restaurant according to Google.
 
       **Metric: Data Completeness:** <br>
-      Data Completeness is determined by the ratio of the Sum of all null Values of All Properties contained in the KG to the Sum of all Properties without the meal properties.
+      Data Completeness is determined by the ratio of the number of all null Values including all businesses in the KG to the Number of all Properties including all businesses.
 
       **Metric: Semantic validity of businesses:** <br>
       Semantic validity is evaluated as the ratio of the Number of businesses that do not contain at least one meal to the Total number of businesses in our knowledge graph. 
