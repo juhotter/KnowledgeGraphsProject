@@ -232,7 +232,7 @@ We can see that all the hours saved do conform to our pattern. This means our sc
 
 **Semantic validity of businesses**
 
-To semantically validate our knowledge graph, we want to make sure every business offers at least one meal. To do this, we impose a SHACL constraint that does exactly this. In order to use SHACL constraints in our GraphDB repository, we first had to change the settings, such that it accommodates SHACL constraints. After this is done, we can upload our .ttl SHACL file as we would normal RDF data, but importing it into a special named graph, the SHACL constraint graph defined in the settings of the repository. The default constraint graph is *http://rdf4j.org/schema/rdf4j#SHACLShapeGraph*. Since we want to impose the restriction that every business must offer at least one meal, our SHACL file looks as follows. We also check for every other common property of each FoodEstablishment, them being *type, identifier, name, address, addressLocality, addressRegion, postalCode, latitude, longitude, ratingValue, reviewCount, isOpen, category* and *hoursAvailable* wheter everey instance possesses at least one value for each of those. The first lines of our foodEstablishment.ttl file look like this:
+To semantically validate our knowledge graph, we want to make sure every business offers at least one meal. To do this, we impose a SHACL constraint that does exactly this. In order to use SHACL constraints in our GraphDB repository, we first had to change the settings, such that it accommodates SHACL constraints. After this is done, we can upload our .ttl SHACL file as we would normal RDF data, but importing it into a special named graph, the SHACL constraint graph defined in the settings of the repository. The default constraint graph is *http://rdf4j.org/schema/rdf4j#SHACLShapeGraph*. Since we want to impose the restriction that every business must offer at least one meal, our SHACL file looks as follows. We also check for every other common property of each FoodEstablishment, them being *type, identifier, name, address, addressLocality, addressRegion, postalCode, latitude, longitude, ratingValue, reviewCount, isOpen, category* and *hoursAvailable* wheter everey instance possesses at least one value for each of those. Additionally, we also check for datatype constraints in most properties and semantic constraints in a few. The first lines of our foodEstablishment.ttl file look like this:
 
 ```
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
@@ -248,8 +248,14 @@ ex:BusinessShape
     sh:minCount 1 ;
   ] ;
   sh:property [
-    sh:path ns1:name ;
+    sh:path schema:identifier ;
     sh:minCount 1 ;
+    sh:maxLength 22 ;
+  ] ;
+  sh:property [
+    sh:path schema:name ;
+    sh:minCount 1 ;
+    sh:datatype xsd:string ;
   ] ;
 ```
 After having uploaded the file to the SHACL repository, we get a *Failed SHACL validation* error, as naturally not all instances comply to our restriction. the entire validation output is found in the shaclValidationOutput.txt file.
