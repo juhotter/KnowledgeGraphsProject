@@ -2,6 +2,7 @@
 @prefix sh: <http://www.w3.org/ns/shacl#>.
 @prefix schema: <http://schema.org/>.
 @prefix ex: <http://example.org/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
 ex:BusinessShape
   a sh:NodeShape ;
@@ -11,63 +12,71 @@ ex:BusinessShape
     sh:minCount 1 ;
   ] ;
   sh:property [
-    sh:path ns1:identifier ;
+    sh:path schema:identifier ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string ;
+    sh:maxLength 12 ;
+  ] ;
+  sh:property [
+    sh:path schema:name ;
+    sh:minCount 1 ;
+    sh:datatype xsd:string ;
+    sh:pattern "^[a-zA-Z0-9]*$" ;
+  ] ;
+  sh:property [
+    sh:path schema:address ;
     sh:minCount 1 ;
   ] ;
   sh:property [
-    sh:path ns1:name ;
+    sh:path schema:addressLocality ;
     sh:minCount 1 ;
   ] ;
   sh:property [
-    sh:path ns1:address ;
+    sh:path schema:addressRegion ;
+    sh:minCount 1 ;
+    sh:datatype xsd:string ;
+    sh:pattern "^[A-Z]{2}$" ;
+  ] ;
+  sh:property [
+    sh:path schema:postalCode ;
     sh:minCount 1 ;
   ] ;
   sh:property [
-    sh:path ns1:addressLocality ;
+    sh:path schema:latitude ;
     sh:minCount 1 ;
+    sh:datatype xsd:float ;
   ] ;
   sh:property [
-    sh:path ns1:addressRegion ;
+    sh:path schema:longitude ;
     sh:minCount 1 ;
+    sh:datatype xsd:float ;
   ] ;
   sh:property [
-    sh:path ns1:postalCode ;
+    sh:path schema:ratingValue ;
     sh:minCount 1 ;
+    sh:datatype xsd:decimal ;
+    sh:pattern "^[0-9](\.[0-9])?$" ;
   ] ;
   sh:property [
-    sh:path ns1:latitude ;
-    sh:minCount 1 ;
-    sh:datatype xsd:double ;
-  ] ;
-  sh:property [
-    sh:path ns1:longitude ;
-    sh:minCount 1 ;
-    sh:datatype xsd:double ;
-  ] ;
-  sh:property [
-    sh:path ns1:ratingValue ;
-    sh:minCount 1 ;
-    sh:datatype xsd:double ;
-  ] ;
-  sh:property [
-    sh:path ns1:reviewCount ;
+    sh:path schema:reviewCount ;
     sh:minCount 1 ;
     sh:datatype xsd:integer ;
   ] ;
   sh:property [
-    sh:path ns1:is_open ;
+    sh:path schema:is_open ;
     sh:minCount 1 ;
-    sh:datatype xsd:integer ;
+    sh:datatype xsd:boolean ;
   ] ;
   sh:property [
-    sh:path ns1:category ;
-    sh:minCount 1 ;
-  ] ;
-  sh:property [
-    sh:path ns1:hoursAvailable ;
+    sh:path schema:category ;
     sh:minCount 1 ;
   ] ;
   sh:property [
-    sh:path ns1:menu ;
+    sh:path schema:hoursAvailable ;
+    sh:minCount 1 ;
+  ] ;
+  sh:property [
+    sh:path schema:menu ;
     sh:minCount 1 ;
   ] .
