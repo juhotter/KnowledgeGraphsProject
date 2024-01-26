@@ -165,7 +165,7 @@ WHERE {
 
 As we can see, the average amount of meals registered in our graph is 5.28. When comparing this to the golden standard of 42, we have a population completeness of 12.57% in this category.
 
-**Data completeness:** <br>
+**Domain(Business) completeness:** <br>
 This refers to the missing values in the KG. <br>
 Given that our businesses are sourced from the Yelp dataset, which consistently includes all top-level properties such as address, rating, longitude, and latitude, etc., and in cases where these properties are not available, they are represented as null values. In this context, we will assess the presence of null values in the knowledge graph, indicating properties that lack actual information. This analysis will assist us in gauging the data completeness of our businesses.
 
@@ -287,14 +287,14 @@ This query returned a total of 81 results, meaning there are only 81 instances o
    - We decided to weight both dimensions equally, namely 0.5 and 0.5
 
 2. **Calculating Metric Values:**
-   - Initially, we established weights for the metrics within each dimension. For the Accuracy dimension, we opted for equal weights as the importance of both metrics is relatively comparable. Concerning Completeness, we assigned a weight of 0.6 to Data Completeness and a weight of 0.4 to Population Completeness. This decision was made because the chosen golden standard of 42 meals is somewhat ambiguous, and therefore the Data Completeness should be weighted a little bit stronger.
+   - Initially, we established weights for the metrics within each dimension. For the Accuracy dimension, we opted for equal weights as the importance of both metrics is relatively comparable. Concerning Completeness, we assigned a weight of 0.6 to Domain(Business) Completeness and a weight of 0.4 to Population Completeness. This decision was made because the chosen golden standard of 42 meals is somewhat ambiguous, and therefore the Domain(Business) Completeness should be weighted a little bit stronger.
    - The next step involves formulating the specific formulas for each metric.
      
       **Metric: Population Completeness:** <br>
       Population Completeness is calculated as the ratio of Average Meals per Food Establishment in the KG to Average Meals per Restaurant according to Google.
 
-      **Metric: Data Completeness:** <br>
-      Data Completeness is determined by the ratio of the number of all null Values including all businesses in the KG to the Number of all Properties including all businesses.
+      **Metric: Domain(Business) Completeness:** <br>
+      Domain(Business) is determined by the ratio of the number of all null Values including all businesses in the KG to the Number of all Properties including all businesses.
 
       **Metric: Semantic validity of businesses:** <br>
       Semantic validity is evaluated as the ratio of the Number of businesses that do not contain at least one meal to the Total number of businesses in our knowledge graph. 
@@ -311,7 +311,7 @@ This query returned a total of 81 results, meaning there are only 81 instances o
 ***Dimension Completeness:***
 
    Population Completeness: 12.57% <br>
-   Data Completeness: 97.95% <br>
+   Domain(Business) Completeness: 97.95% <br>
 
    $$ 0.4 \cdot 12.57 + 0.6 \cdot 97.95 = 63.79 $$
    
