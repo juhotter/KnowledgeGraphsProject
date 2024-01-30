@@ -323,7 +323,7 @@ This query returned a total of 81 results, meaning there are only 81 instances o
    
 ***Dimension Accuracy***
 
-   Semantic validity: 0.5% <br>
+   Semantic validity: 93.83% <br>
    Syntactic Validity of Property Values: 97.37% <br>
 
    $$ 0.5 \cdot 93.83 + 0.5 \cdot 97.37 = 95.6 $$
